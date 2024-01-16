@@ -43,7 +43,7 @@ responsive:{
 loop:true,
 margin:10,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/PathLeft.png' >", "<img src='/wp-content/themes/positiva/assets/images/PathRight.png'>"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/pathleft.png' >", "<img src='/wp-content/themes/positiva/assets/images/pathright.png'>"],
 responsive:{
     0:{
         items:1
@@ -63,7 +63,7 @@ responsive:{
 loop:true,
 margin:150,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/flat-color-icons_left (1).png' >", "<img src='/wp-content/themes/positiva/assets/images/flat-color-icons_right.png'>"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/flat-color-icons_left(1).png' >", "<img src='/wp-content/themes/positiva/assets/images/flat-color-icons_right.png'>"],
 responsive:{
     0:{
         items:1
@@ -104,7 +104,7 @@ responsive:{
 loop:false,
 margin:1,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/Path 1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path 1937 (1).png' >"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/Path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path1937(1).png' >"],
 responsive: {
         0: {
             items: 1,
@@ -125,7 +125,7 @@ responsive: {
 loop:false,
 margin:1,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/Path 1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path 1937 (1).png' >"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/Path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path 1937(1).png' >"],
 responsive: {
         0: {
             items: 1,

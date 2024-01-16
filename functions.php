@@ -162,19 +162,6 @@ add_theme_support('customize-selective-refresh-widgets');
 
 
 
-
-
-
-function my_custom_menu_page_callback() {
-?>
-<div class="wrap">
-	<h2>Edit Theme</h2>
-	<p>Edit your Menu page without code</p>
-</div>
-
-<?php
-}
-
 function theme_customizer_settings($wp_customize) {
 
 	
@@ -184,82 +171,82 @@ function theme_customizer_settings($wp_customize) {
 		'priority' => 30,
 	));
 
-	$wp_customize->add_setting('ayuda_button', array(
-		'default' => 'Ayuda',
-		'sanitize_callback' => 'sanitize_text_field',
-	));
+	// $wp_customize->add_setting('ayuda_button', array(
+	// 	'default' => 'Ayuda',
+	// 	'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('ayuda_button', array(
-	'label' => __('ayuda_button', 'text-domain'),
-	'section' => 'header_section',
-	'type' => 'text',    
-	));
+	// $wp_customize->add_control('ayuda_button', array(
+	// 'label' => __('ayuda_button', 'text-domain'),
+	// 'section' => 'header_section',
+	// 'type' => 'text',    
+	// ));
 
-	$wp_customize->add_setting('map_button', array(
+	// $wp_customize->add_setting('map_button', array(
 
-	'default' => 'Mapa del sitio',
-	'sanitize_callback' => 'sanitize_text_field',
-	));
+	// 'default' => 'Mapa del sitio',
+	// 'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('map_button', array(
+	// $wp_customize->add_control('map_button', array(
 
-	'label' => __('map_button', ' text-domain'),
-	'section' => 'header_section',
-	'type' => 'text',
-	));
+	// 'label' => __('map_button', ' text-domain'),
+	// 'section' => 'header_section',
+	// 'type' => 'text',
+	// ));
 
-	$wp_customize->add_setting('AAA_button', array(
+	// $wp_customize->add_setting('AAA_button', array(
 
-	'default' => 'AAA',
-	'sanitize_callback' => 'sanitize_text_field',
-	));
+	// 'default' => 'AAA',
+	// 'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('AAA_button', array(
+	// $wp_customize->add_control('AAA_button', array(
 
-	'label' => __('AAA_button', 'text-domain'),
-	'section' => 'header_section',
-	'type' => 'text',
-	));
+	// 'label' => __('AAA_button', 'text-domain'),
+	// 'section' => 'header_section',
+	// 'type' => 'text',
+	// ));
 
-	$wp_customize->add_setting('miercolo_text', array(
+	// $wp_customize->add_setting('miercolo_text', array(
 
-	'default' => 'miércoles ,10 de julio de 2015',
-	'sanitize_callback' => 'sanitize_text_field',
-	));
+	// 'default' => 'miércoles ,10 de julio de 2015',
+	// 'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('miercolo_text', array(
+	// $wp_customize->add_control('miercolo_text', array(
 
-	'label' => 'miercolo_text',
-	'section' => 'header_section',
-	'type' => 'text',
-	));
+	// 'label' => 'miercolo_text',
+	// 'section' => 'header_section',
+	// 'type' => 'text',
+	// ));
 
-	$wp_customize->add_setting('Proceso_text', array(
+	// $wp_customize->add_setting('Proceso_text', array(
 
-	'default' => 'Proceso ante accidente laboral',
-	'sanitize_callback' => 'sanitize_text_field',
-	));
+	// 'default' => 'Proceso ante accidente laboral',
+	// 'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('Proceso_text', array(
+	// $wp_customize->add_control('Proceso_text', array(
 
-	'label' => __('Proceso_text', 'text-domain'),
-	'section' => 'header_section',
-	'type' => 'text',
-	));
+	// 'label' => __('Proceso_text', 'text-domain'),
+	// 'section' => 'header_section',
+	// 'type' => 'text',
+	// ));
 
 
-	$wp_customize->add_setting('Iniciar_text', array(
+	// $wp_customize->add_setting('Iniciar_text', array(
 
-	'default' => 'Iniciar sesión',
-	'sanitize_callback' => 'sanitize_text_field',
-	));
+	// 'default' => 'Iniciar sesión',
+	// 'sanitize_callback' => 'sanitize_text_field',
+	// ));
 
-	$wp_customize->add_control('Iniciar_text', array(
+	// $wp_customize->add_control('Iniciar_text', array(
 
-	'label' => __('Iniciar_text', 'text-domain'),
-	'section' => 'header_section',
-	'type' => 'text',
-	));
+	// 'label' => __('Iniciar_text', 'text-domain'),
+	// 'section' => 'header_section',
+	// 'type' => 'text',
+	// ));
 
 
 	$wp_customize->add_setting('inicio_text', array(
@@ -319,553 +306,117 @@ function theme_customizer_settings($wp_customize) {
 	));
 
 
-
-
-
 }
 
+
 add_action('customize_register', 'theme_customizer_settings');
+
+add_action('wp_head', 'display_gray_topline');
+
+
 
 function my_custom_menu_page() {
 	add_menu_page(
 		'My Custom Menu', // page title
-		'Theme Option', // Menu title
+		'Customize Theme', // Menu title/Name
 		'manage_options', // capability
 		'my-custom-menu',  // menu slug
 		'my_custom_menu_page_callback', // callback function
-		'dashicons-admin-generic', // icon
+		'dashicons-admin-customizer', // icon
 
 	);
 }
 
 add_action('admin_menu', 'my_custom_menu_page');
 
-function display_gray_topline() {
-	$ayuda_text = get_theme_mod('ayuda_button', '');
-	$map_text = get_theme_mod('map_button', '');
-	$aaa_text = get_theme_mod('AAA_button','');
-	$miercolo_text = get_theme_mod('miercolo_text', '');
-	$proceso_text = get_theme_mod('Proceso_text', '');
-	$iniciar_text = get_theme_mod('Iniciar_text', '');
-
-	$inicio_text = get_theme_mod('inicio_text', '');
-	$companyia_text = get_theme_mod('companyia_text', '');
-	$ARL_text = get_theme_mod('ARL_text', '');
-	$seguro_text = get_theme_mod('seguro_text', '');
-	$Atencion_text = get_theme_mod('Atencion_text', '');
-
-	if(!empty($ayuda_text)) {
-	?>
-
-	<div class="gray-topline">
-
-		<div class="gray-lineOne">
-
-			<?php
-				wp_nav_menu(array(
-					'theme_location' => 'header-menu',
-					'container' => 'ul',
-					'menu_class' => '',
-				));
-			?>
-			<ul>
-
-				<a href="#" class="orangetext">
-					<li><?php echo"$ayuda_text"; ?></li>
-				</a>
-				
-				<a href="#">
-					<li><?php echo"$map_text"; ?> </li>
-				</a>
-				
-				<a href="#">
-					<li><?php echo"$aaa_text"; ?> </li>
-				</a>
-				
-				
-			</ul>
-
-		</div>
-
-		<div class="gray-lineTwo">
-
-			<a href="#"> <?php echo"$miercolo_text"; ?> </a>
-
-		</div>
-
-		<div class="gray-lineThree">
-
-			<div class="pre-profile">
-
-				<div>
-
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ICONO.png" alt="Icono">
-				<a href="#"><?php echo"$proceso_text"; ?></a>
-
-				</div>
-				
-				<div class="Forma3">
-
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Forma3copia2.png" alt="">
-
-					<div class="Forma4">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Forma4.png" alt="">
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="pre-profile">
-
-				<div>
-					<a href="#"><?php echo"$iniciar_text"; ?></a>
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Ellipse2copy.png" alt="profile-pic">
-				</div>
-
-				<div class="Forma3">
-
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Forma3copia2.png" alt="">
-
-					<div class="Forma4">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Forma4.png" alt="">
-					</div>
-
-				</div>
-
-			</div>    
-
-		</div>
-
-	</div>
-
-	<div class="empty-space">
-    
-    </div>
-
-	<div class="logo-top">
-
-            <div class="Container">
-    
-                <div class="pick-top-logos">
-    
-				
-                    <div class="postiva-logo">
-
-			
-						<?php
-							// Getting logo settings as i sprintf top_ with all(Log_one,Log_two...) in setting_id
-							//you may search (refrence No 1) in customizer.php
-							$logo_one = get_theme_mod('top_Logo_one','');
-							$logo_two = get_theme_mod('top_Logo_two','');
-							$logo_three = get_theme_mod('top_Logo_three','');
-						?>
-
-						<?php
-							
-							
-							if (empty($logo_one)) {
-								// Display a default image if the setting is empty
-								$default_logo_url = get_template_directory_uri() . '/assets/images/LOGOPOSITIVA.png';
-								echo '<img src="' . esc_url($default_logo_url) . '" alt="Default Logo">';
-							} else {
-								// Display the user-configured image
-								echo '<img src="' . esc_url($logo_one) . '" alt="Logo-Positivia">';
-							}
-						?>
-						
-                    </div>
-
-                    <div class="burger-Icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/feather_menu.png" onclick="ClickOnBurger()">
-                    </div>
-
-                    <div class="cross-burger" onclick="ClickOnBurger()">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Shape.png" >
-                    </div>
-        
-                    <div class="Two-logos">
-        
-					<div class="Minh-logo">
-
-					<?php
-
-						if(empty($logo_two)) {
-							$default_logo_url_two = get_template_directory_uri() . '/assets/images/Minhacienda.png';
-							echo '<img src="' . esc_url($default_logo_url_two) . '" alt="Minhacienda">';
-						} else {
-
-							echo '<img src="' . esc_url($logo_two) . '" alt="Minhacienda"';
-						}
-					?>
-
-					</div>
-						
-						
-					<div class="bar-logo">
-						<?php
-								if(empty($logo_three)) {
-
-									$default_logo_url_three = get_template_directory_uri() . '/assets/images/logo-bar-r2.png';
-									echo '<img src="' . esc_url($default_logo_url_three) . '" alt="vectorial-1"';
-								} else {
-									echo '<img src="' . esc_url($logo_three) . '" alt="vectorial-1"';
-								}
-							?>
-					</div>	
-						
-                        
-        
-                    </div>
-    
-                </div>    
-    
-            </div>
-    
-        </div>
-
-		<div class="Top-Menu" id="Top-Menu">
-    
-            <div class="Container">
-    
-                <nav>
-                    <div class="flex-links">
-
-                        <div class="mobile-t-logos">
-    
-                                <div class="Two-logos-mobile">
-            
-                                    <div class="Minh-logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Minhacienda.png" alt="Minhacienda"></div>
-                                    <div class="bar-logo"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-bar-r2.png" alt="vectorial-1"></div>
-                                               
-                                </div>
- 
-                        </div>
-    
-                        <div class="Top-links">
-
-                            <div class="Left-border"><a href="#"><?php echo"$inicio_text"; ?></a></div>
-
-
-                            <div class="FirstDiv-DD-Mobile">
-
-                                <div class="mobile-nav-click">
-
-                                    <div class="Left-border LA-Company" ><a href=""><?php echo"$companyia_text"; ?></a>
-                                
-                                        <div class="drop-down">
-                        
-                                            <div class="DD-Content">
-                            
-                                                <div class="DD-One">
-                                                    <p><a href="#">Quienes Somos</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Misión y Visión</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Objetivos y Funciones</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Organigrama</a>
-                                                    <hr>
-                                                    <p><a href="#">Propuesta de Valor</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Valores</a></p>
-                                                </div>
-                            
-                                                <div class="DD-Two">
-                                                    <p><a href="#">Fortalezas</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Nuestra Marca</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Directorio de Entidades y Agremiaciones</a></p>
-                                                    <hr>
-                                                    <p><a href="#">Certificaciones de Calidad</a>
-                                                    <hr>
-                                                    <p><a href="#">Directorio de funcionarios</a></p>
-                                                    <hr>
-                                                </div>
-                            
-                                            </div>
-                                        </div>  
-    
-                                    </div>
-    
-                                    <div class="path1">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Path.png" alt="Clickable-Button" onclick="RotationOnClick (this)">
-                                    </div>
-                                </div>
-
-                                <div class="Mobile-DD-One">
-                                    <p><a href="#">Quienes</a></p>
-                                    <hr>
-                                    <p><a href="#">Misión</a></p>
-                                    <hr>
-                                    <p><a href="#">Objetivos</a></p>
-                                    <hr>
-                                    <p><a href="#">Organigrama</a>
-                                    <hr>
-                                    <p><a href="#">Propuesta</a></p>
-                                    <hr>
-                                    <p><a href="#">Valores</a></p>
-                                </div>
-
-                            </div>
-
-
-                            <div class="SecondDiv-DD-Mobile">
-
-                                <div class="mobile-nav-click">
-
-                                    <div class="Left-border"><a href="#"><?php echo"$ARL_text"; ?></a></div>
-    
-                                    <div class="path2">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Path.png" alt="Clickable-Button" onclick="RotationOnClickOne(this)">
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="Mobile-DD-two">
-                                    <p><a href="#">Quienes</a></p>
-                                    <hr>
-                                    <p><a href="#">Misión</a></p>
-                                    <hr>
-                                    <p><a href="#">Objetivos</a></p>
-                                    <hr>
-                                    <p><a href="#">Organigrama</a>
-                                    <hr>
-                                    <p><a href="#">Propuesta</a></p>
-                                    <hr>
-                                    <p><a href="#">Valores</a></p>
-                                </div>
-
-                            </div>
-
-                            <div class="ThirdDiv-DD-Mobile">
-
-                                <div class="mobile-nav-click">
-
-                                    <div class="Left-border"><a href="#"><?php echo"$seguro_text"; ?></a></div>
-    
-                                    <div class="path3">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Path.png" alt="Clickable-Button" onclick="RotationOnClickTwo(this)">
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="Mobile-DD-three">
-                                    <p><a href="#">Quienes</a></p>
-                                    <hr>
-                                    <p><a href="#">Misión</a></p>
-                                    <hr>
-                                    <p><a href="#">Objetivos</a></p>
-                                    <hr>
-                                    <p><a href="#">Organigrama</a>
-                                    <hr>
-                                    <p><a href="#">Propuesta</a></p>
-                                    <hr>
-                                    <p><a href="#">Valores</a></p>
-                                </div>
-
-                            </div>                            
-
-                            
-                            <div class="FourthDiv-DD-Mobile">
-
-                                <div class="mobile-nav-click">
-
-                                    <div class="Left-border"><a href="#"><?php echo"$Atencion_text"; ?></a></div>
-    
-                                    <div class="path4">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Path.png" alt="Clickable-Button" onclick="RotationOnClickThree(this)">
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="Mobile-DD-four">
-                                    <p><a href="#">Quienes</a></p>
-                                    <hr>
-                                    <p><a href="#">Misión</a></p>
-                                    <hr>
-                                    <p><a href="#">Objetivos</a></p>
-                                    <hr>
-                                    <p><a href="#">Organigrama</a>
-                                    <hr>
-                                    <p><a href="#">Propuesta</a></p>
-                                    <hr>
-                                    <p><a href="#">Valores</a></p>
-                                </div>
-
-                            </div>
-
-                            
-          
-            
-                        </div>
-            
-                        <div class="search-btn">
-            
-                            <div class="btn-pad search-put"><input type="text" placeholder="Búsqueda"></div>
-        
-                            <div class="btn-pad"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/iconosearch.png" alt="Icono-Search"></div>
-            
-                        </div>
-
-                    </div>
-
-                    
-                </nav>
-                
-            </div>
-        </div>
-
-		<div class="Main-hero">
-
-			<div class="owl-carousel owl-theme owl-carousel1">
-
-				<div class="item">
-
-					<div class="Hero">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
-
-						</pre>
-					
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
-
-						</pre>
-
-					
-						</div>     
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
-
-						</pre>             
-					
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
-
-						</pre>
-					
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<!-- <div class="Hero-Cards">
-
-						<div class="Container">
-
-								<div class="Hero-Cards-flex owl-carousel owl-theme owl-carousel5" >
-
-									<div class="item">
-										<div class="HC-One ">
-											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Frame.png" alt="group-img">
-											<p>RIESGOS LABORALES</p>
-											<h4>ARL</h4>
-										</div>
-									</div>    
-										
-										
-										<div class="item">
-												<div class="HC-Two ">
-													<p>
-														Vida Individual <br>
-														&ensp; Vida Grupo
-													</p>
-										
-													<p>
-														Accidentes <br>
-														Personales
-													</p>
-										
-													<input type="submit" value="VER MÁS">
-												</div>
-										</div>
-											
-										
-										
-											<div class="item">
-												<div class="HC-Three ">
-													<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Frame-1.png" alt="group-img">
-													<p>SEGUROS</p>
-													<h4>PERSONALES</h4>
-												</div>
-											</div>
-											
-										
-											<div class="item">
-												<div class="HC-Four">
-													<img src="<?php echo get_template_directory_uri(); ?>/assets/images/Frame-4.png" alt="group-img">
-													<p>OTROS</p>
-													<h4>SEGUROS</h4>
-												</div>
-											</div>
-											
-
-								</div>
-
-						</div>
-
-			</div> -->
-
-		</div>
-<?php    
-}
+include_once get_template_directory() . '/theme-options.php' ;
+
+
+function theme_options_setting() {
+
+	//step # 1 : Add Setting Section
+
+	add_settings_section (
+		"section_one",    //id of settings
+		"Top Notification Bar",       // title
+		"",               //callback function, not needed so empty
+		"theme-options"   //page
+	);
+	
+	//step # 2 : Add Setting field
+	
+	add_settings_field(
+		"Ayuda",  //id
+		"Ayuda", //title
+		"Ayuda_callback", // callback function
+		"theme-options", //page
+		"section_one" //section id
+	);
+	
+	//can add more fields
+	
+	add_settings_field(
+		"Mapa",
+		"Mapa-Text",
+		"Mapa_callback",
+		"theme-options",
+		"section_one"
+	);
+	
+	add_settings_field(
+		"AAA_button",
+		"AAA-Text",
+		"AAA_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"miercolo_text",
+		"miercolo Text",
+		"miercolo_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"Proceso_text",
+		"Proceso Text",
+		"Proceso_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"Iniciar_text",
+		"Iniciar Text",
+		"Iniciar_callback",
+		"theme-options",
+		"section_one"
+	);
+	//step # 3 rgistering now
+	
+	register_setting(
+		"section_one", // option group name OR means section setting id
+		"Ayuda", // option_name OR filed id
+	);
+	 
+	register_setting("section_one","Mapa");
+	register_setting("section_one","AAA_button");
+	register_setting("section_one","miercolo_text");
+	register_setting("section_one","Proceso_text");
+	register_setting("section_one","Iniciar_text");
+	
 }
 
-add_action('wp_head', 'display_gray_topline');
-?>
+	
+add_action("admin_init","theme_options_setting");
+	
 
-<?php
+	
+
+
+
 
 
 

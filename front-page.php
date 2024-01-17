@@ -67,8 +67,19 @@ function display_gray_topline() {
 				<div class="pre-profile">
 
 					<div>
+					<?php
+						$left_top_icon_var = get_template_directory_uri() . "/assets/images/icono.png";
+						$left_top_icon_custom = get_theme_mod("left_Side_Icon"); 
+						if(!empty($left_top_icon_custom)) {
+							?>
 
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icono.png" alt="Icono">
+							<img src="<?php echo get_theme_mod("left_Side_Icon") ?>"  />
+
+							<?php
+						} else {
+							echo '<img src="' .esc_url($left_top_icon_var) . '" alt="Icono">';
+						}
+					?>
 					<a href="#"><?php echo"$proceso_text"; ?></a>
 
 					</div>
@@ -89,7 +100,20 @@ function display_gray_topline() {
 
 					<div>
 						<a href="#"><?php echo"$iniciar_text"; ?></a>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ellipse2copy.png" alt="profile-pic">
+						<?php
+							$Right_top_icon_var = get_template_directory_uri() . "/assets/images/ellipse2copy.png";
+							$Right_top_icon_custom = get_theme_mod("Right_Side_Icon"); 
+							if(!empty($Right_top_icon_custom)) {
+								?>
+
+								<img src="<?php echo get_theme_mod("Right_Side_Icon") ?>"  />
+
+								<?php
+							} else {
+								echo '<img src="' .esc_url($Right_top_icon_var) . '" alt="profile-pic">';
+							}
+						?>
+						
 					</div>
 
 					<div class="Forma3">

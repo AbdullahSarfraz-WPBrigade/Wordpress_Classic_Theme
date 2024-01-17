@@ -229,6 +229,35 @@ function theme_customizer_settings($wp_customize) {
 	));
 
 
+
+	$wp_customize->add_section('top_icons', array(
+        'title' => 'Top Icons'
+    ));
+
+    $wp_customize->add_setting('left_Side_Icon');
+
+    $wp_customize->add_control(new WP_Customize_Image_Control(
+        $wp_customize,
+        'left_Side_Icon', // Control ID
+        array(
+            'label' => 'Left Side Icon',
+            'settings' => 'left_Side_Icon',
+            'section' => 'top_icons'
+        )
+    ));
+
+	$wp_customize->add_setting('Right_Side_Icon');
+
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+		$wp_customize,
+		'Right_Side_Icon',
+		array(
+			'label'=> 'Right Side Icon',
+			'settings'=> 'Right_Side_Icon',
+			'section'=> 'top_icons'
+		)
+	));
+
 }
 
 

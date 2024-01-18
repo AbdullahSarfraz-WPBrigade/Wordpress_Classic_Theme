@@ -281,7 +281,19 @@ function my_custom_menu_page() {
 
 add_action('admin_menu', 'my_custom_menu_page');
 
+function my_custom_slider_page() {
+	add_menu_page(
+		'Customize Slider',
+		'Slider Settings',
+		'manage_options',
+		'header-slider',
+		'my_custom_slider_page_callback',
+		'dashicons-slides',
+	);
+}
+
 include_once get_template_directory() . '/theme-options.php' ;
+
 
 
 function theme_options_setting() {
@@ -294,6 +306,8 @@ function theme_options_setting() {
 		"",               //callback function, not needed so empty
 		"theme-options"   //page
 	);
+
+	
 	
 	//step # 2 : Add Setting field
 	
@@ -346,6 +360,64 @@ function theme_options_setting() {
 		"theme-options",
 		"section_one"
 	);
+
+
+	add_settings_field(
+		"GARANTIZA_text",
+		"GARANTIZA Text",
+		"GARANTIZA_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"EL_text",
+		"EL Text",
+		"EL_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"BIENESTAR_text",
+		"BIENESTAR Text",
+		"BIENESTAR_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"DE_text",
+		"DE TUS Text",
+		"DE_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"EMPLEADOS_text",
+		"EMPLEADOS Text",
+		"EMPLEADOS_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"CON_text",
+		"CON Text",
+		"CON_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"POSITIVA_text",
+		"POSITIVA Text",
+		"POSITIVA_callback",
+		"theme-options",
+		"section_one"
+	);
+
 	//step # 3 rgistering now
 	
 	register_setting(
@@ -358,14 +430,22 @@ function theme_options_setting() {
 	register_setting("section_one","miercolo_text");
 	register_setting("section_one","Proceso_text");
 	register_setting("section_one","Iniciar_text");
-	
+	register_setting("section_one","GARANTIZA_text");
+	register_setting("section_one","EL_text");
+	register_setting("section_one","BIENESTAR_text");
+	register_setting("section_one","DE_text");
+	register_setting("section_one","EMPLEADOS_text");
+	register_setting("section_one","CON_text");
+	register_setting("section_one","POSITIVA_text");
 }
 
 	
 add_action("admin_init","theme_options_setting");
 	
 
-	
+function header_slider_option_function() {
+
+}
 
 
 

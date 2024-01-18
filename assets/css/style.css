@@ -278,7 +278,7 @@ hr {
 
 .Hero {
     position: relative;
-    background-image: url("/wp-content/themes/positiva/assets/images/Rectangle4copia4.png");
+    /* background-image: url("/wp-content/themes/positiva/assets/images/Rectangle4copia4.png"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

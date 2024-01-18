@@ -18,7 +18,14 @@ function display_gray_topline() {
 	$seguro_text = get_theme_mod('seguro_text', '');
 	$Atencion_text = get_theme_mod('Atencion_text', '');
 
-	
+	$GARANTIZA_text = get_option('GARANTIZA_text', '');
+	$EL_text = get_option('EL_text','');
+	$BIENESTAR_text = get_option('BIENESTAR_text','');
+	$DE_text = get_option('DE_text','');
+	$EMPLEADOS_text = get_option('EMPLEADOS_text','');
+	$CON_text = get_option('CON_text','');
+	$POSITIVA_text = get_option('POSITIVA_text','');
+
 
 	if(!empty($ayuda_text)) {
 
@@ -416,14 +423,14 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero">
+				<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png');">
 
 						<div class="Container">
 
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
+								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
+								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
+								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
 
 						</pre>
 					
@@ -435,11 +442,11 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero">
+					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
 
 						<div class="Container">
 
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
 								<span class="H-TThree">DE TUS</span>
 								<span class="H-TFour">EMPLEADOS</span>
 								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
@@ -455,14 +462,14 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero">
+					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
 
 						<div class="Container">
 
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
+								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
+								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
+								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
 
 						</pre>             
 					
@@ -474,14 +481,14 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero">
+					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
 
 						<div class="Container">
 
-						<pre class="Hero-AllText">                      <span class="H-TOne">GARANTIZA</span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
+								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
+								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
+								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
 
 						</pre>
 					
@@ -493,7 +500,7 @@ function display_gray_topline() {
 
 			</div>
 
-			<!-- <div class="Hero-Cards">
+			<div class="Hero-Cards">
 
 						<div class="Container">
 
@@ -548,7 +555,7 @@ function display_gray_topline() {
 
 						</div>
 
-			</div> -->
+			</div>
 
 		</div>
 <?php    

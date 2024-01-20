@@ -140,7 +140,3 @@ function RotationOnClickThree (image) {
 }
 
 
-
-
-
-

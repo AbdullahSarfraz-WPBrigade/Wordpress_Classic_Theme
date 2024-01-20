@@ -31,10 +31,46 @@ function my_custom_menu_page_callback($wp_customize) {
 
 }
 
+// working but not posting the data into Database
+
+function secondary_image_callback($args) {
+    $slide_number = $args['slide_number'];
+	error_log('Check: ' . print_r($_POST, true));
+    
+    ?>
+    <input type="text" id="upload_secondary_image<?php echo $slide_number; ?>" name="upload_secondary_image<?php echo $slide_number; ?>" value="<?php echo get_option('upload_secondary_image' . $slide_number); ?>" />
+    <button class="button" id="upload_secondary_image_button<?php echo $slide_number; ?>">Select Image</button>
+    <p class="description">Enter the URL of the image or use the button to upload/select an image.</p>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Open media uploader when the button is clicked
+            $('#upload_secondary_image_button<?php echo $slide_number; ?>').click(function (e) {
+                e.preventDefault();
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: {
+                        text: 'Select'
+                    },
+                    multiple: false  // Set this to true to allow multiple image selection
+                });
+
+                custom_uploader.on('select', function () {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    $('#upload_secondary_image<?php echo $slide_number; ?>').val(attachment.url);
+                });
+
+                custom_uploader.open();
+            });
+        });
+    </script>
+    <?php
+}
+
 
 function Ayuda_callback() {
 	?>
-		<input type="text" name="Ayuda" value="<?php echo get_option('Ayuda'); ?>" placeholder="Ayuda">
+		<input type="text" name="Ayuda_text" value="<?php echo get_option('Ayuda_text'); ?>" placeholder="Ayuda">
 	<?php
 }
 	

@@ -421,9 +421,12 @@ function display_gray_topline() {
 
 			<div class="owl-carousel owl-theme owl-carousel1">
 
+				
 				<div class="item">
-
-				<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png');">
+					
+				<?php for ($i = 1; $i <= 3; $i++) { ?>	
+					
+				<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>');">
 
 						<div class="Container">
 
@@ -442,7 +445,7 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
+					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>'); ">
 
 						<div class="Container">
 
@@ -462,7 +465,7 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
+					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>');">
 
 						<div class="Container">
 
@@ -481,7 +484,7 @@ function display_gray_topline() {
 
 				<div class="item">
 
-					<div class="Hero" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/Rectangle4copia4.png')">
+					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); } ?> ');">
 
 						<div class="Container">
 

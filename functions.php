@@ -124,9 +124,9 @@ add_action( 'after_setup_theme', 'positiva_setup' );
 
 function Positiva_register_scripts(){
 	wp_enqueue_style('Positiva-css', get_template_directory_uri() . '/assets/css/style.css');
-	// wp_enqueue_style('Positiva-css');
-	// wp_enqueue_style('responive-css', get_template_directory_uri() . '/assets/css/responive.css');
 	
+
+
 	wp_enqueue_script( 'script-Positiva', get_template_directory_uri() . "/assets/js/script.js", array('jquery'), '1.1', true);
 }
 
@@ -258,6 +258,10 @@ function theme_customizer_settings($wp_customize) {
 		)
 	));
 
+	// Slider ----------------
+
+	
+
 }
 
 
@@ -293,6 +297,24 @@ function my_custom_slider_page() {
 }
 
 include_once get_template_directory() . '/theme-options.php' ;
+
+
+function slider_custom_post_type_header() {
+    register_post_type( 'sliders', array(
+            'labels' => array(
+                'name' => __( 'Sliders' ),
+                'singular_name' => __( 'sliders' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'sliders'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies' => array('category' ),
+        )
+    );
+ }
+add_action( 'init', 'slider_custom_post_type_header' );
 
 
 
@@ -417,6 +439,72 @@ function theme_options_setting() {
 		"theme-options",
 		"section_one"
 	);
+
+	// For Slider -----------------------------------
+
+	
+	
+	
+
+	
+
+// Add background image settings for each slide
+// Add this code inside your theme's functions.php file
+
+// Callback function for image upload
+function hero_slider_bacground_img_callback($args) {
+    $slide_number = $args['slide_number'];
+    $option_name = 'hero_slider_bacground_img' . $slide_number;
+    $option_value = get_option($option_name);
+    ?>
+    <div class="image-upload-container">
+        <input type="text" name="<?php echo esc_attr($option_name); ?>" value="<?php echo esc_url($option_value); ?>" class="image-upload" />
+        <button class="upload-button button">Upload Image</button>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            // Image upload functionality
+            $('.upload-button').click(function(e) {
+                e.preventDefault();
+
+                var frame = wp.media({
+                    title: 'Select or Upload Image',
+                    button: {
+                        text: 'Use this image'
+                    },
+                    multiple: false
+                });
+
+                frame.on('select', function() {
+                    var attachment = frame.state().get('selection').first().toJSON();
+                    $('.image-upload').val(attachment.url);
+                });
+
+                frame.open();
+            });
+        });
+    </script>
+    <?php
+}
+
+// Rest of your code...
+
+// Modify your loop
+for ($i = 1; $i <= 4; $i++) {
+    add_settings_field(
+        'hero_slider_bacground_img' . $i,
+        'Hero Slider Background Image ' . $i,
+        'hero_slider_bacground_img_callback',
+        'theme-options',
+        'section_one',
+        array('slide_number' => $i)
+    );
+
+    register_setting('theme-options', 'hero_slider_bacground_img' . $i, 'esc_url_raw');
+}
+
+
+
 
 	//step # 3 rgistering now
 	

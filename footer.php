@@ -19,7 +19,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-    $('.owl-carousel1').owlCarousel({
+    jQuery('.owl-carousel1').owlCarousel({
 loop:true,
 margin:10,
 nav:true,
@@ -39,7 +39,7 @@ responsive:{
 </script>
 
 <script>
-    $('.owl-carousel2').owlCarousel({
+   jQuery('.owl-carousel2').owlCarousel({
 loop:true,
 margin:10,
 nav:true,
@@ -59,7 +59,7 @@ responsive:{
 </script>
 
 <script>
-    $('.owl-carousel3').owlCarousel({
+    jQuery('.owl-carousel3').owlCarousel({
 loop:true,
 margin:150,
 nav:true,
@@ -79,7 +79,7 @@ responsive:{
 </script>
 
 <script>
-    $('.owl-carousel4').owlCarousel({
+    jQuery('.owl-carousel4').owlCarousel({
 loop:true,
 margin:10,
 nav:true,
@@ -100,7 +100,7 @@ responsive:{
 
 
 <script>
-    $('.owl-carousel5').owlCarousel({
+    jQuery('.owl-carousel5').owlCarousel({
 loop:false,
 margin:1,
 nav:true,
@@ -121,7 +121,7 @@ responsive: {
 </script>
 
 <script>
-    $('.owl-carousel6').owlCarousel({
+    jQuery('.owl-carousel6').owlCarousel({
 loop:false,
 margin:1,
 nav:true,
@@ -142,7 +142,7 @@ responsive: {
 </script>
 
 <script>
-    $('.owl-carousel7').owlCarousel({
+    jQuery('.owl-carousel7').owlCarousel({
 loop:false,
 margin:1,
 nav:false,

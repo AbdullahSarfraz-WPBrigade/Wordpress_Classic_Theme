@@ -431,10 +431,10 @@ function theme_options_setting() {
 		"section_one"
 	);
 
+	// Retrieving the number data from Database for to use in the loop 
+	$storedNumber = get_option('stored_number', 1);
 
-
-	// Modify your loop
-	for ($i = 1; $i <= 4; $i++) {
+	for ($i = 1; $i <= $storedNumber; $i++) {
 		add_settings_field(
 			'upload_secondary_image' . $i,
 			'Slider Background Image ' . $i,
@@ -471,6 +471,7 @@ function theme_options_setting() {
 	register_setting("section_one","EMPLEADOS_text");
 	register_setting("section_one","CON_text");
 	register_setting("section_one","POSITIVA_text");
+	register_setting('section', 'stored_number', 'intval');
 }
 
 	

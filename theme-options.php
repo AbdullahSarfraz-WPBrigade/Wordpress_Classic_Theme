@@ -33,7 +33,7 @@ function my_custom_menu_page_callback($wp_customize) {
 
 function secondary_image_callback($args) {
     $slide_number = $args['slide_number'];
-    $upload_secondary_image = get_option('upload_secondary_image' . $slide_number, '');
+    $upload_secondary_image = get_option('upload_secondary_image' . $slide_number, '/wp-content/themes/positiva/assets/images/rectangle4copia4.png');
 
     ?>
     <input type="text" id="upload_secondary_image<?php echo $slide_number; ?>" name="upload_secondary_image<?php echo $slide_number; ?>" value="<?php echo esc_url($upload_secondary_image); ?>" />
@@ -65,14 +65,40 @@ function secondary_image_callback($args) {
     <?php
 }
 
-function Slider_callback() {
-	?>
-		<input type="number" id="stored_number" name="stored_number" value="<?php echo esc_attr($storedNumber); ?>" min="1">
-		<!-- Buttons for incrementing and decrementing -->
-		<button type="submit" name="increment">+</button>
-    <button type="submit" name="decrement">-</button>
-	<?php
+
+
+
+
+function slider_callback() {
+    global $storedNumber;
+    ?>
+    <form method="post">
+        <input type="number" id="stored_number" name="stored_number" value="<?php echo esc_attr($storedNumber); ?>" min="1">
+        <!-- Buttons for incrementing and decrementing -->
+        <button type="submit" name="increment">+</button>
+        <button type="submit" name="decrement">-</button>
+    </form>
+    <?php
 }
+
+$storedNumber = get_option('stored_number', 1);
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if + button is clicked
+    if (isset($_POST['increment'])) {
+        $storedNumber++;
+    }
+    // Check if - button is clicked
+    elseif (isset($_POST['decrement']) && $storedNumber > 1) {
+        $storedNumber--;
+    }
+
+    // Update the stored number in the database
+    update_option('stored_number', $storedNumber);
+}
+
+
 
 function Ayuda_callback() {
 	?>

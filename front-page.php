@@ -1,6 +1,6 @@
 <?php
     get_header();
-
+	
 ?>
 
 <?php
@@ -12,18 +12,20 @@ function display_under_head() {
 	$EMPLEADOS_text = get_option('EMPLEADOS_text','');
 	$CON_text = get_option('CON_text','');
 	$POSITIVA_text = get_option('POSITIVA_text','');
+
+	$storedNumber = get_option('stored_number', 1);
 ?>
 		<div class="Main-hero">
 
 			<div class="owl-carousel owl-theme owl-carousel1">
 
-				<?php for ($i = 1; $i <= 4; $i++) { ?>
+				<?php for ($i = 1; $i <= $storedNumber; $i++) { ?>
 
 				<div class="item">
 					
 					
 					
-				<div class="Hero" style="background-image: url('<?php echo get_option('upload_secondary_image' . $i); ?>');">
+				<div class="Hero" style="background-image: url('<?php echo (get_option('upload_secondary_image' . $i)) ? esc_url(get_option('upload_secondary_image' . $i)) : get_template_directory_uri() . '/assets/images/rectangle4copia4.png'; ?>'); ">
 
 						<div class="Container">
 

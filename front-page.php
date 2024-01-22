@@ -4,7 +4,7 @@
 ?>
 
 <?php
-function display_gray_topline_testing() {
+function display_under_head() {
     $GARANTIZA_text = get_option('GARANTIZA_text', '');
 	$EL_text = get_option('EL_text','');
 	$BIENESTAR_text = get_option('BIENESTAR_text','');
@@ -17,85 +17,31 @@ function display_gray_topline_testing() {
 
 			<div class="owl-carousel owl-theme owl-carousel1">
 
+				<?php for ($i = 1; $i <= 4; $i++) { ?>
+
+				<div class="item">
+					
+					
+					
+				<div class="Hero" style="background-image: url('<?php echo get_option('upload_secondary_image' . $i); ?>');">
+
+						<div class="Container">
+
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
+								<span class="H-TThree"><?php echo"$i"; ?></span>
+								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
+								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
+
+						</pre>
+					
+						</div>
+
+					</div>
+
+				</div>
+					<?php } ?>
+
 				
-				<div class="item">
-					
-				<?php for ($i = 1; $i <= 4; $i++) { ?>	
-					
-				<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>');">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
-								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
-								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
-								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
-
-						</pre>
-					
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>'); ">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo">EL</span> <span class="H-TOne">BIENESTAR</span>
-								<span class="H-TThree">DE TUS</span>
-								<span class="H-TFour">EMPLEADOS</span>
-								<span class="H-TCON">CON</span> <span class="H-TPos">POSITIVA</span>
-
-						</pre>
-
-					
-						</div>     
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); ?>');">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
-								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
-								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
-								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
-
-						</pre>             
-					
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="item">
-
-					<div class="Hero" style="background-image: url('<?php echo get_option('hero_slider_bacground_img' . $i); } ?> ');">
-
-						<div class="Container">
-
-						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
-								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
-								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
-								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
-
-						</pre>
-					
-						</div>
-
-					</div>
-
-				</div>
 
 			</div>
 

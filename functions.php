@@ -111,24 +111,11 @@ add_action( 'after_setup_theme', 'positiva_setup' );
 
 
 
-// function Positiva_register_styles(){
-// 	wp_enqueue_style('Positiva-css', get_template_directory_uri() . '/assets/css/style.css');
-// }
-
-/* Now hook the function into the wordpress using add_action function.... */
-
-// add_action('wp_enqueue_scripts', 'Positiva_register_styles');
-
 
 
 
 function Positiva_register_scripts(){
 	wp_enqueue_style('Positiva-css', get_template_directory_uri() . '/assets/css/style.css');
-	
-
-
-
-	
 
 	wp_enqueue_script( 'script-Positiva', get_template_directory_uri() . "/assets/js/script.js", array('jquery'), '1.1', true);
 }
@@ -288,7 +275,7 @@ function theme_customizer_settings($wp_customize) {
 add_action('customize_register', 'theme_customizer_settings');
 
 add_action('wp_head', 'display_gray_topline');
-add_action('wp_head', 'display_gray_topline_testing');
+add_action('wp_head', 'display_under_head');
 
 
 
@@ -380,6 +367,13 @@ function theme_options_setting() {
 		"section_one"
 	);
 
+	add_settings_field(
+		"slider_count",
+		"No. of Sides",
+		"Slider_callback",
+		"theme-options",
+		"section_one"
+	);
 
 	add_settings_field(
 		"GARANTIZA_text",
@@ -439,23 +433,21 @@ function theme_options_setting() {
 
 
 
+	// Modify your loop
+	for ($i = 1; $i <= 4; $i++) {
+		add_settings_field(
+			'upload_secondary_image' . $i,
+			'Slider Background Image ' . $i,
+			'secondary_image_callback',
+			'theme-options',
+			'section_one',
+			array('slide_number' => $i)
+		);
 
+		register_setting('section_one', 'upload_secondary_image' . $i, 'esc_url_raw');
+	}
 
-// Rest of your code...
-
-// Modify your loop
-for ($i = 1; $i <= 4; $i++) {
-    add_settings_field(
-        'upload_secondary_image' . $i,
-        'Slider Background Image ' . $i,
-        'secondary_image_callback',
-        'theme-options',
-        'section_one',
-        array('slide_number' => $i)
-    );
-
-    register_setting('theme-options', 'upload_secondary_image' . $i, 'esc_url_raw');
-}
+	
 
 
 

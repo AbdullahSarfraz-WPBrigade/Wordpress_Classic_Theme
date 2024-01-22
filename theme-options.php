@@ -14,7 +14,7 @@ function my_custom_menu_page_callback($wp_customize) {
 
 
 		<div>
-			<form action="options.php" method="post">
+			<form action="options.php" method="post" enctype="multipart/form-data">
 				<?php
 					settings_fields("section_one");
 					do_settings_sections("theme-options");
@@ -31,16 +31,14 @@ function my_custom_menu_page_callback($wp_customize) {
 
 }
 
-// working but not posting the data into Database
-
 function secondary_image_callback($args) {
     $slide_number = $args['slide_number'];
-	error_log('Check: ' . print_r($_POST, true));
-    
+    $upload_secondary_image = get_option('upload_secondary_image' . $slide_number, '');
+
     ?>
-    <input type="text" id="upload_secondary_image<?php echo $slide_number; ?>" name="upload_secondary_image<?php echo $slide_number; ?>" value="<?php echo get_option('upload_secondary_image' . $slide_number); ?>" />
+    <input type="text" id="upload_secondary_image<?php echo $slide_number; ?>" name="upload_secondary_image<?php echo $slide_number; ?>" value="<?php echo esc_url($upload_secondary_image); ?>" />
     <button class="button" id="upload_secondary_image_button<?php echo $slide_number; ?>">Select Image</button>
-    <p class="description">Enter the URL of the image or use the button to upload/select an image.</p>
+    <p class="description">Enter the URL OR upload/select an image</p>
 
     <script>
         jQuery(document).ready(function ($) {
@@ -67,6 +65,14 @@ function secondary_image_callback($args) {
     <?php
 }
 
+function Slider_callback() {
+	?>
+		<input type="number" id="stored_number" name="stored_number" value="<?php echo esc_attr($storedNumber); ?>" min="1">
+		<!-- Buttons for incrementing and decrementing -->
+		<button type="submit" name="increment">+</button>
+    <button type="submit" name="decrement">-</button>
+	<?php
+}
 
 function Ayuda_callback() {
 	?>
@@ -82,7 +88,7 @@ function Mapa_callback() {
 
 function AAA_callback() {
 	?>	
-		<input type="text" name="AAA_button" value="<?php echo get_option('AAA_button'); ?>" placeholder="AAA">	
+		<input type="text" name="AAA_button_Testing" value="<?php echo get_option('AAA_button'); ?>" placeholder="AAA">	
 	<?php
 }
 

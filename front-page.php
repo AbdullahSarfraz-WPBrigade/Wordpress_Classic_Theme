@@ -14,6 +14,11 @@ function display_under_head() {
 	$POSITIVA_text = get_option('POSITIVA_text','');
 
 	$storedNumber = get_option('stored_number', 1);
+
+	$LinkedNumber = get_option('linked_number', 1);
+
+	$top_p_text = get_option('top_p_text', '');
+	$bottom_h_text = get_option('bottom_h_text', '');
 ?>
 		<div class="Main-hero">
 
@@ -30,7 +35,7 @@ function display_under_head() {
 						<div class="Container">
 
 						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
-								<span class="H-TThree"><?php echo"$i"; ?></span>
+								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
 								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
 								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
 
@@ -52,50 +57,19 @@ function display_under_head() {
 						<div class="Container">
 
 								<div class="Hero-Cards-flex owl-carousel owl-theme owl-carousel5" >
-
+									<?php for($iy=1; $iy<=$LinkedNumber; $iy++) { ?>
 									<div class="item">
 										<div class="HC-One ">
-											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame.png" alt="group-img">
-											<p>RIESGOS LABORALES</p>
-											<h4>ARL</h4>
+											<img src="<?php echo (get_option('upload_first_icon' . $iy)) ? esc_url(get_option('upload_first_icon' . $iy)) : get_template_directory_uri() . '/assets/images/frame.png'; ?> ); ">
+											<p><?php echo (get_option('top_p_text' . $iy)) ? esc_attr(get_option('top_p_text' . $iy)) : "Default P tag"; ?></p>
+											<h4><?php echo (get_option('bottom_h_text' . $iy)) ? esc_attr(get_option('bottom_h_text' . $iy)) : "Default H"; ?></h4>
 										</div>
 									</div>    
+									<?php
+										}
+									?>
 										
-										
-										<div class="item">
-												<div class="HC-Two ">
-													<p>
-														Vida Individual <br>
-														&ensp; Vida Grupo
-													</p>
-										
-													<p>
-														Accidentes <br>
-														Personales
-													</p>
-										
-													<input type="submit" value="VER MÁS">
-												</div>
-										</div>
-											
-										
-										
-											<div class="item">
-												<div class="HC-Three ">
-													<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-1.png" alt="group-img">
-													<p>SEGUROS</p>
-													<h4>PERSONALES</h4>
-												</div>
-											</div>
-											
-										
-											<div class="item">
-												<div class="HC-Four">
-													<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-4.png" alt="group-img">
-													<p>OTROS</p>
-													<h4>SEGUROS</h4>
-												</div>
-											</div>
+									
 											
 
 								</div>

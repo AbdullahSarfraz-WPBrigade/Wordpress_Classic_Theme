@@ -33,7 +33,7 @@ function my_custom_menu_page_callback($wp_customize) {
 
 function secondary_image_callback($args) {
     $slide_number = $args['slide_number'];
-    $upload_secondary_image = get_option('upload_secondary_image' . $slide_number, '/wp-content/themes/positiva/assets/images/rectangle4copia4.png');
+    $upload_secondary_image = get_option('upload_secondary_image' . $slide_number, '');
 
     ?>
     <input type="text" id="upload_secondary_image<?php echo $slide_number; ?>" name="upload_secondary_image<?php echo $slide_number; ?>" value="<?php echo esc_url($upload_secondary_image); ?>" />
@@ -63,9 +63,14 @@ function secondary_image_callback($args) {
         });
     </script>
     <?php
+
+	
 }
 
+function page_link_start_callback() {
+	
 
+}
 
 
 
@@ -79,6 +84,7 @@ function slider_callback() {
         <button type="submit" name="decrement">-</button>
     </form>
     <?php
+	
 }
 
 $storedNumber = get_option('stored_number', 1);
@@ -187,7 +193,103 @@ function POSITIVA_callback() {
 	?>	
 		<input type="text" name="POSITIVA_text" value="<?php echo get_option('POSITIVA_text'); ?>" placeholder="POSITIVA">	
 	<?php
+	
 }
+
+function page_link_callback() {
+    global $LinkedNumber;
+    ?>
+    <form method="post">
+        <input type="number" id="linked_number" name="linked_number" value="<?php echo esc_attr($LinkedNumber); ?>" min="1">
+        <!-- Buttons for incrementing and decrementing -->
+        <button type="submit" name="increment1">+</button>
+        <button type="submit" name="decrement1">-</button>
+    </form>
+    <?php
+	
+}
+
+$LinkedNumber = get_option('linked_number', 1);
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if + button is clicked
+    if (isset($_POST['increment1']) && $LinkedNumber <= 3) {
+        $LinkedNumber++;
+    }
+    // Check if - button is clicked
+    elseif (isset($_POST['decrement1']) && $LinkedNumber > 1) {
+        $LinkedNumber--;
+    }
+
+    // Update the stored number in the database
+    update_option('linked_number', $LinkedNumber);
+}
+
+function first_page_link_icon_callback($args) {
+    $link_number = $args['link_number'];
+    $iy = $args['link_number'];
+    $upload_first_icon = get_option('upload_first_icon' . $link_number, '');
+
+    ?>
+    <input type="text" id="upload_first_icon<?php echo $link_number; ?>" name="upload_first_icon<?php echo $link_number; ?>" value="<?php echo esc_url($upload_first_icon); ?>" />
+    <button class="button" id="upload_first_icon_btn<?php echo $link_number; ?>">Select Icon</button>
+    
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Open media uploader when the button is clicked
+            $('#upload_first_icon_btn<?php echo $link_number; ?>').click(function (e) {
+                e.preventDefault();
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: {
+                        text: 'Select'
+                    },
+                    multiple: false  // Set this to true to allow multiple image selection
+                });
+
+                custom_uploader.on('select', function () {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    $('#upload_first_icon<?php echo $link_number; ?>').val(attachment.url);
+                });
+
+                custom_uploader.open();
+            });
+        });
+    </script>		
+
+<?php
+     
+	
+
+}
+
+
+
+function top_p_text_callback($args) {
+    $link_number = $args['link_number'];
+    $top_p_text = get_option('top_p_text' . $link_number, '');
+    
+    ?>
+        <br>
+        <input type="text" name="top_p_text<?php echo $link_number; ?>" value="<?php echo esc_attr($top_p_text); ?>" placeholder="P tag Text">
+    <?php
+
+}
+
+function bottom_h_text_callback($args) {
+    $link_number = $args['link_number'];
+    $bottom_h_text = get_option('bottom_h_text' . $link_number, '');
+    ?>
+        <br>
+        <input type="text" name="bottom_h_text<?php echo $link_number; ?>" value="<?php echo esc_attr($bottom_h_text); ?>" placeholder="H tag Text">
+    <?php
+
+}
+
+
+
+
+
 ?>
-
-

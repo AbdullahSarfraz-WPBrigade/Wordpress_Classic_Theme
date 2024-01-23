@@ -367,13 +367,7 @@ function theme_options_setting() {
 		"section_one"
 	);
 
-	add_settings_field(
-		"slider_count",
-		"No. of Sides",
-		"Slider_callback",
-		"theme-options",
-		"section_one"
-	);
+
 
 	add_settings_field(
 		"GARANTIZA_text",
@@ -431,6 +425,14 @@ function theme_options_setting() {
 		"section_one"
 	);
 
+	add_settings_field(
+		"slider_count",
+		"No. of Slides",
+		"Slider_callback",
+		"theme-options",
+		"section_one"
+	);
+
 	// Retrieving the number data from Database for to use in the loop 
 	$storedNumber = get_option('stored_number', 1);
 
@@ -447,10 +449,61 @@ function theme_options_setting() {
 		register_setting('section_one', 'upload_secondary_image' . $i, 'esc_url_raw');
 	}
 
+	add_settings_field(
+		"page_link_start",
+		"Special Page Links Settings",
+		"page_link_start_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"page_link_count",
+		"No. of Special Page Links",
+		"page_link_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	$LinkedNumber = get_option('linked_number', 1);
+
+	for ($iy = 1; $iy <= $LinkedNumber; $iy++) {
+		add_settings_field(
+			'upload_first_icon' . $iy,
+			'Page Link ' . $iy,
+			'first_page_link_icon_callback',
+			'theme-options',
+			'section_one',
+			array('link_number' => $iy)
+		);
+
+		register_setting('section_one', 'upload_first_icon' . $iy, 'esc_url_raw');
+
+		add_settings_field(
+			"top_p_text" . $iy,
+			"",
+			"top_p_text_callback",
+			"theme-options",
+			"section_one",
+			array('link_number' => $iy)
+		);
+		register_setting("section_one","top_p_text" . $iy);
+
+
+		add_settings_field(
+			"bottom_h_text" . $iy,
+			"",
+			"bottom_h_text_callback",
+			"theme-options",
+			"section_one",
+			array('link_number' => $iy)
+		);
+		register_setting("section_one","bottom_h_text" . $iy);
+	}
+
+
+
 	
-
-
-
 
 	//step # 3 rgistering now
 	
@@ -471,7 +524,9 @@ function theme_options_setting() {
 	register_setting("section_one","EMPLEADOS_text");
 	register_setting("section_one","CON_text");
 	register_setting("section_one","POSITIVA_text");
-	register_setting('section', 'stored_number', 'intval');
+	register_setting('section_one', 'stored_number', 'intval');
+	
+	
 }
 
 	

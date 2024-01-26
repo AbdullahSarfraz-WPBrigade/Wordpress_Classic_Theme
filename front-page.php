@@ -79,9 +79,159 @@ function display_under_head() {
 			</div>
 
 		</div>
+
+		<div class="Main-Article">
+
+			<div class="Container">
+
+				<div class="MA-Flex">
+					<div class="MA-Cards owl-carousel owl-theme owl-carousel6">
+						<?php
+						$args = array(
+							'post_type' => 'post',
+							'posts_per_page' => 3,
+							'orderby' => 'date',
+							'order' => 'DESC',
+						);
+
+						$latest_posts = new WP_Query($args);
+
+						if ($latest_posts->have_posts()) :
+							while ($latest_posts->have_posts()) : $latest_posts->the_post();
+						?>
+								<div class="item">
+									<div class=" MA-Dots">
+
+											<p class="upper-orange"><?php the_title(); ?></p>
+											<div>
+												<?php if (has_post_thumbnail()) : ?>
+													<div class="back-img"><?php the_post_thumbnail('medium');  ?></div>
+												<?php endif; ?>
+											</div>
+											<div class="under-words post-excerpt">
+												<p><?php the_excerpt(); ?></p>
+											</div>
+										
+									</div>
+								</div>
+						<?php
+							endwhile;
+							wp_reset_postdata(); // Reset the query
+						else :
+							echo 'No posts found.';
+						endif;
+						?>
+					</div>
+
+					
+		
+					<div class="MA-Qote">
+							<div class="Two-btns">
+								<div class="left-btn-MA">
+									<input type="submit" value="Red Asistencial">
+								</div>
+			
+								<div class="right-btn-MA two-btn-color">
+									<input type="submit" value="Punto de Atención">
+								</div>
+							</div>
+			
+							<div class="Mid-Line"> 
+								Consulta Rapidamente tu red asistencial
+							</div>
+			
+							<div class="first-btn-div">
+			
+								<label for="Departamento">Departamento:</label><br>
+			
+			
+								<select name="Departamento" id="Departamento" class="select-size">
+									<option value="Departamento" id="Departamento"><img src="./slicing/Forma 4 copia 3.png" ></option>
+									
+									<option value="Departamento" id="Departamento">Departamento</option>
+									
+									<option value="Departamento" id="Departamento">Departamento</option>
+									
+									<option value="Departamento" id="Departamento">Departamento</option>
+								</select> <br>
+			
+								<label for="Ciudad">Ciudad:</label><br>
+			
+								<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
+									<option value="Ciudad" id="Ciudad"></option>
+									<option value="Ciudad" id="Ciudad">Ciudad</option>
+								</select>
+			
+								<label for="Selecciones Red">Selecciones Red:</label><br>
+			
+								<select name="Selecciones" id="Selecciones" class="select-size">
+									<option value="Selecciones" id="Selecciones"></option>
+									<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
+								</select>
+			
+								<label for="Selecciones">Selecciones un Punto:</label><br>
+			
+								<select name="Selecciones" id="Selecciones" class="select-size">
+									<option value="Selecciones" id="Selecciones"></option>
+									<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
+								</select>
+			
+								<div class="select-btn">
+									<a href="#">BUSCAR</a>
+								</div>
+			
+							</div>
+			
+							
+			
+							<div class="second-btn-div">
+								<label for="Departamento">SecondButton:</label><br>
+			
+			
+								<select name="Departamento" id="Departamento" class="select-size">
+									<option value="Departamento" id="Departamento">testing<img src="./slicing/Forma 4 copia 3.png" ></option>
+									
+									<option value="Departamento" id="Departamento">Sucess</option>
+									
+									<option value="Departamento" id="Departamento">Working</option>
+									
+									<option value="Departamento" id="Departamento">Random</option>
+								</select> <br>
+			
+								<label for="Ciudad">Fine:</label><br>
+			
+								<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
+									<option value="Ciudad" id="Ciudad">Fine</option>
+								</select>
+			
+								<label for="Selecciones Red">Need Work:</label><br>
+			
+								<select name="Selecciones" id="Selecciones" class="select-size">
+									<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
+								</select>
+			
+								<label for="Selecciones">Socond One Last:</label><br>
+			
+								<select name="Selecciones" id="Selecciones" class="select-size">
+									<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
+								</select>
+			
+								<div class="select-btn">
+									<a href="#">BUSCAR</a>
+								</div>
+							</div>
+					</div>
+
+				</div>
+
+			</div>
+
+    	</div>
+
+
 <?php    
 
-				}
+}
 
 ?>
 

@@ -136,6 +136,7 @@ responsive: {
         768: {
             items: 3,
             slideBy: 3,
+            
         }
 }
 })

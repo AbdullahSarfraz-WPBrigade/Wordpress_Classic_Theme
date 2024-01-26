@@ -272,7 +272,7 @@ function top_p_text_callback($args) {
     $top_p_text = get_option('top_p_text' . $link_number, '');
     
     ?>
-        <br>
+        
         <input type="text" name="top_p_text<?php echo $link_number; ?>" value="<?php echo esc_attr($top_p_text); ?>" placeholder="P tag Text">
     <?php
 
@@ -282,12 +282,17 @@ function bottom_h_text_callback($args) {
     $link_number = $args['link_number'];
     $bottom_h_text = get_option('bottom_h_text' . $link_number, '');
     ?>
-        <br>
+        
         <input type="text" name="bottom_h_text<?php echo $link_number; ?>" value="<?php echo esc_attr($bottom_h_text); ?>" placeholder="H tag Text">
     <?php
 
 }
 
+function post_link_start_callback() {
+    ?>
+        <br>
+    <?php
+}
 
 
 

@@ -501,7 +501,15 @@ function theme_options_setting() {
 		register_setting("section_one","bottom_h_text" . $iy);
 	}
 
+	add_settings_field(
+		"post_link_start",
+		"Latest three Posts Settings",
+		"post_link_start_callback",
+		"theme-options",
+		"section_one"
+	);
 
+	
 
 	
 
@@ -537,11 +545,17 @@ function header_slider_option_function() {
 
 }
 
+function custom_length_excerpt($length) {
+	return 22;
+}
 
+add_filter('excerpt_length','custom_length_excerpt');
 
+function custom_more_excerpt($more) {
+	return ' <a class="under-orange read-more" href="' . get_permalink() . '">+ Ver otros servicios</a>';
+}
 
-
-
+add_filter('excerpt_more','custom_more_excerpt');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

@@ -167,6 +167,7 @@ add_theme_support('custom-background');
 add_theme_support('html5', array('comment-list','comment-form', 'search-form', 'gallery', 'caption'));
 add_theme_support('customize-selective-refresh-widgets');
 
+// Custom Class for options Customizability
 
 
 function theme_customizer_settings($wp_customize) {
@@ -265,9 +266,136 @@ function theme_customizer_settings($wp_customize) {
 		)
 	));
 
-	// Slider ----------------
+	// First Gravity Form Settings for adding the class before this function ----------------
 
+	$wp_customize->add_section('your_custom_form', array(
+        'title' => __('Your Custom Form', 'your_theme_textdomain'),
+		'priority' => 40,
+    ));
+	// Add setting
+    $wp_customize->add_setting('departmento_select_option', array(
+		'default' => array('Departmento','2Departmento','3rdDep','lastDep'),
+		'sanitize_callback' => 'mytheme_sanitize_select_options',
+	));
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'departmento_select_option',
+		array(
+			'label' => 'Departmento:',
+			'section' => 'your_custom_form',
+			'type' => 'select',
+			'choices' => array(),
+			'customize_control_update' => 'mytheme_departmento_control_update',
+		)
+		));
+
+	$wp_customize->add_setting('Ciudad', array(
+		'default' => array('Ciudad','2ndOfcourse','3rd'),
+		'sanitize_callback'=> 'mytheme_sanitize_select_options',
+	));
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'Ciudad',
+		array(
+			'label' => 'Ciudad:',
+			'section' => 'your_custom_form',
+			'type' => 'select',
+			'choices' => array(),
+			'customize_control_update' => 'mytheme_departmento_control_update',
+		)
+	));
+
+	$wp_customize->add_setting('seleccion', array(
+		'default' => array('Seleccion', '2nd Selection'),
+		'sanitize_callback' => 'mytheme_sanitize_select_options',
+	));
+
+	$wp_customize->add_control( new WP_Customize_Control(
+		$wp_customize,
+		'seleccion',
+		array(
+			'label' => 'Selecciones Red:',
+			'section' => 'your_custom_form',
+			'type' => 'select',
+			'choices' => array(),
+			'customize_control_update' => 'mytheme_departmento_control_update',
+		)
+		));
+
+	$wp_customize->add_setting('punto', array(
+		'default' => array('putto', 'lastBut', 'NotLeast'),
+		'sanitize_callback' => 'mytheme_sanitize_select_options',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Control(
+		$wp_customize,
+		'punto',
+		array(
+			'label' => 'Selecciones un Punto:',
+			'section' => 'your_custom_form',
+			'type' => 'select',
+			'choices' => array(),
+			'customize_control_update' => 'mytheme_departmento_control_update',
+		)
+		));
+
+	// Fetch Options from Database:.......................	
+
+	function mytheme_get_select_options( $option_name ) {
+		$options = get_option( $option_name );
+		return $options ? $options : array(); // Handle empty options
+	}	
+
+	//Update Controls and Database:-----------------------
+
+	function mytheme_departamento_control_update( $control ) {
+		$new_choices = mytheme_get_select_options( 'departmento_select_option' );
+		$control->choices = $new_choices;
 	
+		// Update the setting and notify for live updates
+		$wp_customize->get_setting( 'departmento_select_option' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'departmento_select_option' )->notify();
+	
+		// Save updated options back to the database
+		update_option( 'departmento_select_option', $new_choices );
+	}
+
+	function mytheme_Ciudad_control_update( $control ) {
+		$new_choices = mytheme_get_select_options( 'Ciudad' );
+		$control->choices = $new_choices;
+	
+		$wp_customize->get_setting( 'Ciudad' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'Ciudad' )->notify();
+	
+		update_option( 'Ciudad', $new_choices );
+	}
+
+	function mytheme_seleccion_control_update( $control ) {
+		$new_choices = mytheme_get_select_options( 'seleccion' );
+		$control->choices = $new_choices;
+	
+		$wp_customize->get_setting( 'seleccion' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'seleccion' )->notify();
+	
+		update_option( 'seleccion', $new_choices );
+	}
+	
+	function mytheme_punto_control_update( $control ) {
+		$new_choices = mytheme_get_select_options( 'punto' );
+		$control->choices = $new_choices;
+	
+		$wp_customize->get_setting( 'punto' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'punto' )->notify();
+	
+		update_option( 'punto', $new_choices );
+	}
+	
+
+
+
+
 
 }
 

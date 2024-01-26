@@ -278,7 +278,6 @@ hr {
 
 .Hero {
     position: relative;
-    /* background-image: url("/wp-content/themes/positiva/assets/images/Rectangle4copia4.png"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -701,10 +700,11 @@ p {
 }
 
 .Two-btns input {
-    background-color: hsl(0, 3%, 85%);
-    border: none;
-    padding: 10px 17px;
-    color: #FFF;
+    background-color: #D9D7D7 !important;
+    border: none !important;
+    border-radius: none !important;
+    padding: 10px 17px !important;
+    color: #FFF !important;
     font-family: Helvetica;
     font-size: 11px;
     font-style: normal;
@@ -732,7 +732,7 @@ p {
 .first-btn-div select {
     width: 213.61px;
     min-height: 27.68px;
-    border-radius: 0;
+    border-radius: 0 !important;
     margin-bottom: 10px;
     outline: none;
 }
@@ -783,7 +783,7 @@ p {
 }
 
 .second-btn-div label {
-    color: #686868;
+    color: #686868 !important;
     font-family: Helvetica;
     font-size: 14px;
     font-style: normal;
@@ -794,13 +794,14 @@ p {
 .second-btn-div select {
     width: 213.61px;
     min-height: 27.68px;
-    border-radius: 0;
+    border-radius: 0 !important;
     margin-bottom: 10px;
 }
 
 .two-btn-color input{
-    background-color: #FD7605;
-    border: none;
+    background-color: #FD7605 !important;
+    border: none !important ;
+    border-radius: none !important;
     padding: 10px 17px;
     color: #FFF;
     font-family: Helvetica;
@@ -1607,7 +1608,7 @@ p {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
     display: block;
-    background: url(/wp-content/themes/positiva/assets/images/calendar\ copia.png) no-repeat;
+    background: url("/wp-content/themes/positiva/assets/images/forma4copia9.png") no-repeat;
     width: 15px;
     height: 15px;
     border-width: thin;

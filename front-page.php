@@ -19,6 +19,8 @@ function display_under_head() {
 
 	$top_p_text = get_option('top_p_text', '');
 	$bottom_h_text = get_option('bottom_h_text', '');
+
+	$selected_departamento = get_theme_mod( 'departamento_select' );
 ?>
 		<div class="Main-hero">
 

@@ -104,7 +104,7 @@ responsive:{
 loop:false,
 margin:1,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/Path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path1937(1).png' >"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/path1937(1).png' >"],
 responsive: {
         0: {
             items: 1,
@@ -125,7 +125,7 @@ responsive: {
 loop:false,
 margin:1,
 nav:true,
-navText: ["<img src='/wp-content/themes/positiva/assets/images/Path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/Path 1937(1).png' >"],
+navText: ["<img src='/wp-content/themes/positiva/assets/images/path1937.png' >", "<img src='/wp-content/themes/positiva/assets/images/path1937(1).png' >"],
 responsive: {
         0: {
             items: 1,

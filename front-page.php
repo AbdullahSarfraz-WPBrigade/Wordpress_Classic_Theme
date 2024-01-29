@@ -148,7 +148,7 @@ function display_under_head() {
 			
 			
 								<select name="Departamento" id="Departamento" class="select-size">
-									<option value="Departamento" id="Departamento"><img src="./slicing/Forma 4 copia 3.png" ></option>
+									<option value="Departamento" id="Departamento"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
 									
 									<option value="Departamento" id="Departamento">Departamento</option>
 									
@@ -191,7 +191,7 @@ function display_under_head() {
 			
 			
 								<select name="Departamento" id="Departamento" class="select-size">
-									<option value="Departamento" id="Departamento">testing<img src="./slicing/Forma 4 copia 3.png" ></option>
+									<option value="Departamento" id="Departamento">testing<img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
 									
 									<option value="Departamento" id="Departamento">Sucess</option>
 									
@@ -230,6 +230,339 @@ function display_under_head() {
 
     	</div>
 
+		<div class="Under-Article">
+
+			<div class="Container">
+
+				<div class="Sliders-Hub">
+
+					<div class="slider-hub-area">
+
+						<div class="owl-carousel owl-theme owl-carousel2">
+						<?php
+						$args_array = array(
+							'posts_per_page' => -1,
+							'post_type'      => 'sliders',
+							'post_status'    => 'publish',
+							'orderby'        => 'post_type',
+								'order'          => 'DESC'
+						);
+						$get_sliders_posts = get_posts( $args_array );
+
+						if ( $get_sliders_posts ) {
+							foreach ( $get_sliders_posts as $post ) :
+								setup_postdata( $post );
+								?>
+									
+									<div class="item">
+									<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
+										<div class="SA-Slider">
+											
+											<img src="<?php echo $featured_img_url; ?>" alt="Image">
+										</div>
+										
+									</div>								
+							<?php
+							endforeach; 
+							wp_reset_postdata();
+						}
+						?>
+								
+							
+							
+		
+						</div> 
+		
+					</div>
+		
+					<div class="SA-Text">
+		
+						<h2>Noticias</h2>
+		
+						<h3>INFORMACIÓN IMPORTANTE PARA</h3>
+		
+						<h3>PENSIONADOS ARL</h3><br>
+		
+						<pre>
+De 3.194 personas que han sido notificadas para la
+realización de una valoración médica para verificar
+el estado de invalidez, 1.867 pensionados aún no
+acuden a esta citación, lo que puede generar la
+suspensión en el pago de su mesada pensional.
+						</pre>
+		
+						<div class="SA-Text-btn">
+							<a href="#">VER MÁS NOTICIAS</a>
+						</div>
+		
+					</div>
+		
+					<div class="feature-posts-slider">
+
+						<div class="FP-Top">
+							<p>EVENTS</p>
+						</div>
+
+						<div class="FP-Bottom">
+
+							<div class="owl-carousel owl-theme owl-carousel3">
+
+								<div class="item">
+		
+									<div class="FP-Post1">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
+									</div>
+			
+									<div class="FP-Post2">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
+									</div>
+			
+									<div class="FP-Post3">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
+									</div>
+			
+							</div>
+
+							<div class="item">
+		
+								<div class="FP-Post1">
+		
+									<div class="fp-post">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+									</div>
+		
+									<div class="fp-text">
+										<a href="#">Game Event</a>
+										<p>12th Dec, 2022</p>
+										<p>12:00PM - 12:00AM</p>
+									</div>
+		
+								</div>
+		
+								<div class="FP-Post2">
+		
+									<div class="fp-post">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+									</div>
+		
+									<div class="fp-text">
+										<a href="#">Game Event</a>
+										<p>12th Dec, 2022</p>
+										<p>12:00PM - 12:00AM</p>
+									</div>
+		
+								</div>
+		
+								<div class="FP-Post3">
+		
+									<div class="fp-post">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+									</div>
+		
+									<div class="fp-text">
+										<a href="#">Game Event</a>
+										<p>12th Dec, 2022</p>
+										<p>12:00PM - 12:00AM</p>
+									</div>
+		
+								</div>
+		
+						</div>
+
+						<div class="item">
+		
+							<div class="FP-Post1">
+
+								<div class="fp-post">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+								</div>
+
+								<div class="fp-text">
+									<a href="#">Game Event</a>
+									<p>12th Dec, 2022</p>
+									<p>12:00PM - 12:00AM</p>
+								</div>
+
+							</div>
+
+							<div class="FP-Post2">
+
+								<div class="fp-post">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+								</div>
+
+								<div class="fp-text">
+									<a href="#">Game Event</a>
+									<p>12th Dec, 2022</p>
+									<p>12:00PM - 12:00AM</p>
+								</div>
+
+							</div>
+
+							<div class="FP-Post3">
+
+								<div class="fp-post">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+								</div>
+
+								<div class="fp-text">
+									<a href="#">Game Event</a>
+									<p>12th Dec, 2022</p>
+									<p>12:00PM - 12:00AM</p>
+								</div>
+
+							</div>
+
+					</div>
+		
+							</div>
+
+							<div class="FP-B-Events">
+								<a href="#">More Events</a>
+							</div>
+
+						</div>
+										
+					</div>
+
+				</div>
+
+				<div class="img-btn-news">
+
+					<div class="img-w-btn">
+
+						<div class="btn1and2">
+
+							<div class="img-w-btn1">
+								<a href="#">FOROS</a>
+							</div>
+		
+							<div class="img-w-btn2">
+								<a href="#">BLOGS</a>
+							</div>
+							
+						</div>
+					
+					</div>
+
+					<div class="newsletter">
+
+						<p>NewsLetter</p>
+
+						<input type="text" placeholder="E-mail">
+
+						<a href="#">ENVIAR</a>
+
+					</div>
+
+				</div>
+			
+
+				<div class="slider-iframe">
+
+					<div class="slider-f-flex">
+
+						<div class="slider-f">
+
+							<div class="owl-carousel owl-theme owl-carousel4">
+		
+								<div class="item">
+		
+									<p> BANNER SLIDER </p>
+		
+								</div>
+		
+								<div class="item">
+		
+									<p> BANNER SLIDER </p>
+		
+								</div>
+		
+								<div class="item">
+		
+									<p> BANNER SLIDER </p>
+		
+								</div>
+		
+							</div>
+							
+						</div>
+						
+						<div class="img1and2-date">
+
+							<div class="img-date1">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/image1.png" alt="logo-image">
+							</div>
+			
+							<div class="img-date2">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/trasparencia.png" >
+							</div>
+	
+						</div>
+
+					</div>
+
+					<div class="twitter-iframe">
+
+						<div><img src="<?php echo get_template_directory_uri(); ?>/assets/images/capa4.png" alt="Twitter-Iframe"></div>
+
+						<div class="img-date-evento">
+							<div class="top-evento">
+								<p>Evento</p>
+							</div>
+		
+							<div class="date-evento">
+								<input type="date">
+							</div>
+						</div>
+		
+						<div class="M-img-date1"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/trasparencia.png" >
+
+							<div class="M-img-date2">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/image1.png" alt="logo-image">
+							</div>
+
+						</div>
+
+						
+
+					</div>
+					
+				</div>
+
+			</div>
+
+    </div>
 
 <?php    
 

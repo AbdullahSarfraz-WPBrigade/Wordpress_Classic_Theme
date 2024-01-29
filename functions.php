@@ -425,7 +425,25 @@ add_action('admin_menu', 'my_custom_menu_page');
 
 include_once get_template_directory() . '/theme-options.php' ;
 
+//Custom post type for Slider
 
+function slider_custom_post_type_header() {
+    register_post_type( 'sliders', array(  // 'sldier' here is for the slug and array is definig the properties
+            'labels' => array(
+                'name' => __( 'Sliders' ),
+                'singular_name' => __( 'sliders' ),
+				'all_items' => __('All Sliders'),
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'sliders'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies' => array('category' ),
+        )
+    );
+ }
+add_action( 'init', 'slider_custom_post_type_header' );
 
 
 

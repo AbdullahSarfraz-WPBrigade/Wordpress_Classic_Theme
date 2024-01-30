@@ -288,11 +288,18 @@ function bottom_h_text_callback($args) {
 
 }
 
-function post_link_start_callback() {
+function slider_text_area_callback() {
     ?>
         <br>
     <?php
 }
+
+function slider_textarea_callback() {
+    ?>
+    <textarea name="slider_textarea" placeholder="Enter your Text to show in the Slider" rows="4" cols="50"><?php echo esc_textarea(get_option('slider_textarea')); ?></textarea>
+    <?php
+}
+
 
 
 

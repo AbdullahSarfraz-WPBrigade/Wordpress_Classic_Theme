@@ -21,6 +21,8 @@ function display_under_head() {
 	$bottom_h_text = get_option('bottom_h_text', '');
 
 	$selected_departamento = get_theme_mod( 'departamento_select' );
+
+	$slider_textarea = get_option('slider_textarea');
 ?>
 		<div class="Main-hero">
 
@@ -144,47 +146,52 @@ function display_under_head() {
 			
 							<div class="first-btn-div">
 			
-								<label for="Departamento">Departamento:</label><br>
-			
-			
-								<select name="Departamento" id="Departamento" class="select-size">
-									<option value="Departamento" id="Departamento"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
-									
-									<option value="Departamento" id="Departamento">Departamento</option>
-									
-									<option value="Departamento" id="Departamento">Departamento</option>
-									
-									<option value="Departamento" id="Departamento">Departamento</option>
-								</select> <br>
-			
-								<label for="Ciudad">Ciudad:</label><br>
-			
-								<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
-									<option value="Ciudad" id="Ciudad"></option>
-									<option value="Ciudad" id="Ciudad">Ciudad</option>
-								</select>
-			
-								<label for="Selecciones Red">Selecciones Red:</label><br>
-			
-								<select name="Selecciones" id="Selecciones" class="select-size">
-									<option value="Selecciones" id="Selecciones"></option>
-									<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
-								</select>
-			
-								<label for="Selecciones">Selecciones un Punto:</label><br>
-			
-								<select name="Selecciones" id="Selecciones" class="select-size">
-									<option value="Selecciones" id="Selecciones"></option>
-									<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
-								</select>
-			
-								<div class="select-btn">
-									<a href="#">BUSCAR</a>
-								</div>
-			
+								<form id="myForm2" action="<?php echo esc_attr( admin_url('admin-post.php') ); ?>" method="POST">
+									<input type="hidden" name="action" value="<?php echo esc_attr( 'save_my_custom_form2' ); ?>" />
+
+									<label for="Departamento">Departamento:</label><br>
+				
+				
+									<select name="Departamento" id="Departamento" class="select-size">
+										<option value="Departamento" id="Departamento"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
+										
+										<option value="Departamento" id="Departamento">Departamento</option>
+										
+										<option value="Departamento" id="Departamento">Departamento</option>
+										
+										<option value="Departamento" id="Departamento">Departamento</option>
+									</select> <br>
+				
+									<label for="Ciudad">Ciudad:</label><br>
+				
+									<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
+										<option value="Ciudad" id="Ciudad"></option>
+										<option value="Ciudad" id="Ciudad">Ciudad</option>
+									</select>
+				
+									<label for="Selecciones Red">Selecciones Red:</label><br>
+				
+									<select name="Selecciones" id="Selecciones" class="select-size">
+										<option value="Selecciones" id="Selecciones"></option>
+										<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
+									</select>
+				
+									<label for="Selecciones">Selecciones un Punto:</label><br>
+				
+									<select name="Selecciones" id="Selecciones" class="select-size">
+										<option value="Selecciones" id="Selecciones"></option>
+										<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
+									</select>
+				
+									<div class="select-btn">
+										<button type="submit">BUSCAR</button>
+									</div>
+								</form>
 							</div>
 			
-							
+							<?php
+
+							?>
 			
 							<div class="second-btn-div">
 								<label for="Departamento">SecondButton:</label><br>
@@ -233,6 +240,7 @@ function display_under_head() {
 		<div class="Under-Article">
 
 			<div class="Container">
+				<?php  ?>
 
 				<div class="Sliders-Hub">
 
@@ -247,7 +255,7 @@ function display_under_head() {
 							'orderby'        => 'post_type',
 								'order'          => 'DESC'
 						);
-						$get_sliders_posts = get_posts( $args_array );
+						$get_sliders_posts = new WP_Query( $args_array );
 
 						if ( $get_sliders_posts ) {
 							foreach ( $get_sliders_posts as $post ) :
@@ -255,7 +263,7 @@ function display_under_head() {
 								?>
 									
 									<div class="item">
-									<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
+									<?php $featured_img_url = get_the_post_thumbnail_url(); ?>
 										<div class="SA-Slider">
 											
 											<img src="<?php echo $featured_img_url; ?>" alt="Image">
@@ -475,15 +483,19 @@ suspensión en el pago de su mesada pensional.
 					
 					</div>
 
-					<div class="newsletter">
+					<form id="newsletter-form" method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+						<div class="newsletter">
 
-						<p>NewsLetter</p>
+							<p>NewsLetter</p>
 
-						<input type="text" placeholder="E-mail">
+							<!-- <input type="hidden" name="action" value="my_newsletter_submission"> -->
 
-						<a href="#">ENVIAR</a>
+							<input type="text" name="email" placeholder="E-mail">
 
-					</div>
+							<button type="submit">ENVIAR</button>
+
+						</div>
+					</form>	
 
 				</div>
 			
@@ -498,7 +510,7 @@ suspensión en el pago de su mesada pensional.
 		
 								<div class="item">
 		
-									<p> BANNER SLIDER </p>
+									<p><?php echo"$slider_textarea"; ?> </p>
 		
 								</div>
 		
@@ -510,7 +522,7 @@ suspensión en el pago de su mesada pensional.
 		
 								<div class="item">
 		
-									<p> BANNER SLIDER </p>
+									<p> <?php echo"$slider_textarea"; ?> </p>
 		
 								</div>
 		
@@ -534,7 +546,7 @@ suspensión en el pago de su mesada pensional.
 
 					<div class="twitter-iframe">
 
-						<div><img src="<?php echo get_template_directory_uri(); ?>/assets/images/capa4.png" alt="Twitter-Iframe"></div>
+						<div><blockquote class="twitter-tweet"> <a href="https://twitter.com/username/status/807811447862468608"></a> </blockquote></div>
 
 						<div class="img-date-evento">
 							<div class="top-evento">

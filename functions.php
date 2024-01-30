@@ -116,6 +116,7 @@ add_action( 'after_setup_theme', 'positiva_setup' );
 
 function Positiva_register_scripts(){
 	wp_enqueue_style('Positiva-css', get_template_directory_uri() . '/assets/css/style.css');
+	wp_enqueue_style('Positiva-responsive', get_template_directory_uri() . '/assets/css/responsive.css');
 
 	wp_enqueue_script( 'script-Positiva', get_template_directory_uri() . "/assets/js/script.js", array('jquery'), '1.1', true);
 }
@@ -139,6 +140,10 @@ function enqueue_thickbox_script() {
 }
 add_action('wp_enqueue_scripts', 'enqueue_thickbox_script');
 
+
+
+add_action( 'admin_post_nopriv_save_my_custom_form', 'my_save_custom_form' );
+add_action( 'admin_post_save_my_custom_form', 'my_save_custom_form' );
 
 // In your theme's functions.php file
 
@@ -430,7 +435,7 @@ include_once get_template_directory() . '/theme-options.php' ;
 function slider_custom_post_type_header() {
     register_post_type( 'sliders', array(  // 'sldier' here is for the slug and array is definig the properties
             'labels' => array(
-                'name' => __( 'Sliders' ),
+                'name' => __( 'sliders' ),
                 'singular_name' => __( 'sliders' ),
 				'all_items' => __('All Sliders'),
             ),
@@ -439,13 +444,32 @@ function slider_custom_post_type_header() {
             'rewrite' => array('slug' => 'sliders'),
             'show_in_rest' => true,
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-            'taxonomies' => array('category' ),
+            'taxonomies' => array('post_tag','category' ),
         )
     );
  }
 add_action( 'init', 'slider_custom_post_type_header' );
 
 
+// Submittion of Gravity Form for Email-Newsletter in wp_options
+
+// Add an action to handle form submission
+add_action('init', 'handle_newsletter_form_submission');
+
+function handle_newsletter_form_submission() {
+    if (isset($_POST['submit_newsletter'])) {
+        // Verify nonce for security
+        if (isset($_POST['newsletter_nonce']) && wp_verify_nonce($_POST['newsletter_nonce'], 'newsletter_action')) {
+            // Sanitize and save the email address to wp_options
+            $newsletter_email = sanitize_email($_POST['newsletter_email']);
+            update_option('newsletter_email', $newsletter_email);
+
+            // Optionally, you can add additional logic or redirect the user
+            // For example: wp_redirect(home_url('/thank-you'));
+            // exit();
+        }
+    }
+}
 
 
 function theme_options_setting() {
@@ -648,15 +672,20 @@ function theme_options_setting() {
 	}
 
 	add_settings_field(
-		"post_link_start",
-		"Latest three Posts Settings",
-		"post_link_start_callback",
+		"slider_textarea_start",
+		"Slider TextArea Box",
+		"slider_text_area_callback",
 		"theme-options",
 		"section_one"
 	);
 
-	
-
+	add_settings_field(
+		"slider_textarea",
+		"Edit Text Area",
+		"slider_textarea_callback",
+		"theme-options",
+		"section_one"
+	);
 	
 
 	//step # 3 rgistering now
@@ -680,7 +709,7 @@ function theme_options_setting() {
 	register_setting("section_one","POSITIVA_text");
 	register_setting('section_one', 'stored_number', 'intval');
 	
-	
+	register_setting('section_one', 'slider_textarea');
 }
 
 	

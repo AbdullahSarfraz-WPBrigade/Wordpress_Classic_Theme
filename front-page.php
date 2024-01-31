@@ -147,40 +147,41 @@ function display_under_head() {
 							<div class="first-btn-div">
 			
 								<form id="myForm2" action="<?php echo esc_attr( admin_url('admin-post.php') ); ?>" method="POST">
-									<input type="hidden" name="action" value="<?php echo esc_attr( 'save_my_custom_form2' ); ?>" />
+								
+								<input type="hidden" name="action" value="<?php echo esc_attr( 'save_my_custom_form2' ); ?>" />
 
 									<label for="Departamento">Departamento:</label><br>
 				
 				
 									<select name="Departamento" id="Departamento" class="select-size">
-										<option value="Departamento" id="Departamento"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
+										<option value="Departamento" ><img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
 										
-										<option value="Departamento" id="Departamento">Departamento</option>
+										<option value="Departamento" >Departamento</option>
 										
-										<option value="Departamento" id="Departamento">Departamento</option>
+										<option value="2nd_Departamento" >Departamento</option>
 										
-										<option value="Departamento" id="Departamento">Departamento</option>
+										<option value="3rd_Departamento" >Departamento</option>
 									</select> <br>
 				
 									<label for="Ciudad">Ciudad:</label><br>
 				
-									<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
-										<option value="Ciudad" id="Ciudad"></option>
-										<option value="Ciudad" id="Ciudad">Ciudad</option>
+									<select name="Ciudad" id="Ciudad" class="select-size">
+										<option value="1st_Ciudad" >1st_Ciudad</option>
+										<option value="Ciudad" >Ciudad</option>
 									</select>
 				
-									<label for="Selecciones Red">Selecciones Red:</label><br>
+									<label for="SeleccionesRed">Selecciones Red:</label><br>
 				
-									<select name="Selecciones" id="Selecciones" class="select-size">
-										<option value="Selecciones" id="Selecciones"></option>
-										<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
+									<select name="SeleccionesRed" id="SeleccionesRed" class="select-size">
+										<option value="Selecciones" >Selecciones</option>
+										<option value="Selecciones Red:" >Selecciones Red:</option>
 									</select>
 				
 									<label for="Selecciones">Selecciones un Punto:</label><br>
 				
 									<select name="Selecciones" id="Selecciones" class="select-size">
-										<option value="Selecciones" id="Selecciones"></option>
-										<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
+										<option value="Selecciones" >Selecciones</option>
+										<option value="Selecciones un Punto:" >Selecciones un Punto:</option>
 									</select>
 				
 									<div class="select-btn">
@@ -194,40 +195,44 @@ function display_under_head() {
 							?>
 			
 							<div class="second-btn-div">
-								<label for="Departamento">SecondButton:</label><br>
-			
-			
-								<select name="Departamento" id="Departamento" class="select-size">
-									<option value="Departamento" id="Departamento">testing<img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
+								<form id="myForm3" action="<?php echo esc_attr( admin_url('admin-post.php') ); ?>" method="POST">
+									<input type="hidden" name="action" value="<?php echo esc_attr('save_my_custom_form3'); ?>"/>
 									
-									<option value="Departamento" id="Departamento">Sucess</option>
-									
-									<option value="Departamento" id="Departamento">Working</option>
-									
-									<option value="Departamento" id="Departamento">Random</option>
-								</select> <br>
-			
-								<label for="Ciudad">Fine:</label><br>
-			
-								<select name="Ciudad" id="Ciudad" class="select-size" class="select-size">
-									<option value="Ciudad" id="Ciudad">Fine</option>
-								</select>
-			
-								<label for="Selecciones Red">Need Work:</label><br>
-			
-								<select name="Selecciones" id="Selecciones" class="select-size">
-									<option value="Selecciones" id="Selecciones">Selecciones Red:</option>
-								</select>
-			
-								<label for="Selecciones">Socond One Last:</label><br>
-			
-								<select name="Selecciones" id="Selecciones" class="select-size">
-									<option value="Selecciones" id="Selecciones">Selecciones un Punto:</option>
-								</select>
-			
-								<div class="select-btn">
-									<a href="#">BUSCAR</a>
-								</div>
+									<label for="Departamento">SecondButton:</label><br>
+				
+				
+									<select name="Departamento" id="Departamento" class="select-size">
+										<option value="testing" >testing<img src="<?php echo get_template_directory_uri(); ?>/assets/images/forma4copia3.png" ></option>
+										
+										<option value="Sucess" >Sucess</option>
+										
+										<option value="Working" >Working</option>
+										
+										<option value="Random" >Random</option>
+									</select> <br>
+				
+									<label for="Ciudad">Fine:</label><br>
+				
+									<select name="Ciudad" id="Ciudad" class="select-size" >
+										<option value="Fine" >Fine</option>
+									</select>
+				
+									<label for="SeleccionesRed">Need Work:</label><br>
+				
+									<select name="SeleccionesRed" id="SeleccionesRed" class="select-size">
+										<option value="Selecciones Red:" >Selecciones Red:</option>
+									</select>
+				
+									<label for="Selecciones">Socond One Last:</label><br>
+				
+									<select name="Selecciones" id="Selecciones" class="select-size">
+										<option value="Selecciones un Punto:" >Selecciones un Punto:</option>
+									</select>
+				
+									<div class="select-btn">
+										<button type="submit">BUSCAR</button>
+									</div>
+								</form>	
 							</div>
 					</div>
 
@@ -359,99 +364,99 @@ suspensión en el pago de su mesada pensional.
 			
 									</div>
 			
-							</div>
+								</div>
 
-							<div class="item">
-		
-								<div class="FP-Post1">
-		
-									<div class="fp-post">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+								<div class="item">
+			
+									<div class="FP-Post1">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
 									</div>
-		
-									<div class="fp-text">
-										<a href="#">Game Event</a>
-										<p>12th Dec, 2022</p>
-										<p>12:00PM - 12:00AM</p>
+			
+									<div class="FP-Post2">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
 									</div>
-		
-								</div>
-		
-								<div class="FP-Post2">
-		
-									<div class="fp-post">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+			
+									<div class="FP-Post3">
+			
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+										</div>
+			
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+			
 									</div>
-		
-									<div class="fp-text">
-										<a href="#">Game Event</a>
-										<p>12th Dec, 2022</p>
-										<p>12:00PM - 12:00AM</p>
+			
+								</div>
+
+								<div class="item">
+				
+									<div class="FP-Post1">
+
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
+										</div>
+
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+
 									</div>
-		
-								</div>
-		
-								<div class="FP-Post3">
-		
-									<div class="fp-post">
-										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+
+									<div class="FP-Post2">
+
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
+										</div>
+
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+
 									</div>
-		
-									<div class="fp-text">
-										<a href="#">Game Event</a>
-										<p>12th Dec, 2022</p>
-										<p>12:00PM - 12:00AM</p>
+
+									<div class="FP-Post3">
+
+										<div class="fp-post">
+											<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
+										</div>
+
+										<div class="fp-text">
+											<a href="#">Game Event</a>
+											<p>12th Dec, 2022</p>
+											<p>12:00PM - 12:00AM</p>
+										</div>
+
 									</div>
-		
+
 								</div>
-		
-						</div>
-
-						<div class="item">
-		
-							<div class="FP-Post1">
-
-								<div class="fp-post">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6.png" alt="First-post-image">
-								</div>
-
-								<div class="fp-text">
-									<a href="#">Game Event</a>
-									<p>12th Dec, 2022</p>
-									<p>12:00PM - 12:00AM</p>
-								</div>
-
-							</div>
-
-							<div class="FP-Post2">
-
-								<div class="fp-post">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(1).png" alt="First-post-image">
-								</div>
-
-								<div class="fp-text">
-									<a href="#">Game Event</a>
-									<p>12th Dec, 2022</p>
-									<p>12:00PM - 12:00AM</p>
-								</div>
-
-							</div>
-
-							<div class="FP-Post3">
-
-								<div class="fp-post">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/rectangle5copy6(2).png" alt="First-post-image">
-								</div>
-
-								<div class="fp-text">
-									<a href="#">Game Event</a>
-									<p>12th Dec, 2022</p>
-									<p>12:00PM - 12:00AM</p>
-								</div>
-
-							</div>
-
-					</div>
 		
 							</div>
 
@@ -483,20 +488,16 @@ suspensión en el pago de su mesada pensional.
 					
 					</div>
 
-					<form id="newsletter-form" method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+					<form id="newsletter-form" method="POST" action="<?php echo esc_attr(admin_url('admin-post.php')); ?>">
+						<input type="hidden" name="action" value="newsletter_form">
+
 						<div class="newsletter">
-
 							<p>NewsLetter</p>
-
-							<!-- <input type="hidden" name="action" value="my_newsletter_submission"> -->
-
-							<input type="text" name="email" placeholder="E-mail">
-
+							<input type="email" name="email" placeholder="E-mail" required>
 							<button type="submit">ENVIAR</button>
-
 						</div>
-					</form>	
-
+					</form>
+	
 				</div>
 			
 
@@ -574,7 +575,155 @@ suspensión en el pago de su mesada pensional.
 
 			</div>
 
-    </div>
+    	</div>
+
+		<div class="contact-foot">
+
+			<div class="Container">
+
+				<div class="contact-details">
+
+					<div class="contact-icons">
+
+						<div class="contact-side-logo">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/vectorial-bottom.png" alt="Bottom-Side-logo">
+						</div>
+
+						<div class="contact-main-icons">
+
+							<div class="top-contact-icons">
+
+								<div class="top-icon1">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-2.png" alt="CONTRATACIÓN">
+									<p>CONTRATACIÓN</p>
+								</div>
+
+								<div class="top-icon2">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-1.png" alt="CONSUMIDOR">
+									<p>CONSUMIDOR</p>
+									<h3>FINANCIERO</h3>
+								</div>
+
+								<div class="top-icon3">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-3.png" alt="SERVICIOS AL">
+									<p>SERVICIOS AL</p>
+									<h3>CIUDADANO</h3>
+								</div>
+
+							</div>
+
+							<div class="bottom-contact-icons">
+
+								<div class="bottom-icon1">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-2.png" alt="POSITIVA EN">
+									<p>POSITIVA EN</p>
+									<h3>CONTÁCTO</h3>
+								</div>
+
+								<div class="bottom-icon2">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-1.png" alt="MAPA DE">
+									<p>MAPA DE</p>
+									<h3>NAVEGACIÓN</h3>
+								</div>
+
+								<div class="bottom-icon3">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-3.png" alt="PREGUNTAS">
+									<p>PREGUNTAS</p>
+									<h3>FRECUENTES</h3>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="contact-links">
+
+						<div class="call-number">
+
+							<div class="call-icon">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/call.png" alt="Call-Icon">
+							</div>
+
+							<div class="numbers-action">
+
+								<p>Líneas de atención</p>
+								<p>Comunicate a nivel nacional</p>
+								<a href="tel:+1-8000-111-170">01-8000-111-170</a>
+								<p>En Bogotá</p>
+								<a href="tel:330-7000">330-7000</a>
+							</div>
+
+						</div>
+
+						<div class="location-address">
+
+							<div class="location-icon">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame13.png" alt="Location-Icon">
+							</div>
+
+							<div class="address-site">
+								<h3>Puntos de Atención</h3>
+								<p>Ubica el punto de atención más cercano</p>
+							</div>
+
+						</div>
+
+						<div class="group-text">
+
+							<div class="group-icon">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-2.png" alt="Group-Icon">
+							</div>
+
+							<div class="group-name">
+								<h3>Directorio de Funcionarios</h3>
+							</div>
+
+						</div>
+
+						<div class="one-man-info">
+
+							<div class="one-man-icon">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/frame-3.png" alt="PostMan-Icon">
+							</div>
+
+							<div class="one-man-text">
+
+								<h3>Línea Ética</h3>
+								<span>Presenta aquí tu caso</span>
+								<span>de fraude o corrupción</span><br>
+								<a href="tel:+1-8000-112-870">01-8000-112-870</a>
+								<h4>Correo electronico</h4><br><br>
+
+								<div class="first-mail-id">
+									<div class="first-mail-icon">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.png" alt="Mail-Icon">
+									</div>
+									<div class="first-mail-link">
+										<a href="mailto:servicioalcliente@positiva.gov.co">servicioalcliente@positiva.gov.co</a>
+									</div>
+								</div>
+
+								<div class="second-mail-id">
+									<div class="second-mail-icon">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.png" alt="Mail-Icon">
+									</div>
+									<div class="second-mail-link">
+										<a href="mailto:notijicacionesjudiciales@popositiva.gov.co">notijicacionesjudiciales@popositiva.gov.co</a>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>      
+
+		</div>		
 
 <?php    
 

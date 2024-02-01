@@ -23,6 +23,10 @@ function display_under_head() {
 	$selected_departamento = get_theme_mod( 'departamento_select' );
 
 	$slider_textarea = get_option('slider_textarea');
+
+	$ServicesNumber = get_option('services_number', 1);
+
+	$ServicesNumberOne = get_option('service_b_number', 1);
 ?>
 		<div class="Main-hero">
 
@@ -34,7 +38,7 @@ function display_under_head() {
 					
 					
 					
-				<div class="Hero" style="background-image: url('<?php echo (get_option('upload_secondary_image' . $i)) ? esc_url(get_option('upload_secondary_image' . $i)) : get_template_directory_uri() . '/assets/images/rectangle4copia4.png'; ?>'); ">
+				<div class="Hero" style="background-image: url('<?php echo (get_option('upload_secondary_image' . $i)) ? esc_url(get_option('upload_secondary_image' . $i)) : get_template_directory_uri() . '/assets/images/rectangle4copia4.png'; ?> ">
 
 						<div class="Container">
 
@@ -64,7 +68,7 @@ function display_under_head() {
 									<?php for($iy=1; $iy<=$LinkedNumber; $iy++) { ?>
 									<div class="item">
 										<div class="HC-One ">
-											<img src="<?php echo (get_option('upload_first_icon' . $iy)) ? esc_url(get_option('upload_first_icon' . $iy)) : get_template_directory_uri() . '/assets/images/frame.png'; ?> ); ">
+											<img src="<?php echo (get_option('upload_first_icon' . $iy)) ? esc_url(get_option('upload_first_icon' . $iy)) : get_template_directory_uri() . '/assets/images/frame.png'; ?> ">
 											<p><?php echo (get_option('top_p_text' . $iy)) ? esc_attr(get_option('top_p_text' . $iy)) : "Default P tag"; ?></p>
 											<h4><?php echo (get_option('bottom_h_text' . $iy)) ? esc_attr(get_option('bottom_h_text' . $iy)) : "Default H"; ?></h4>
 										</div>
@@ -593,44 +597,32 @@ suspensión en el pago de su mesada pensional.
 
 							<div class="top-contact-icons">
 
-								<div class="top-icon1">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-2.png" alt="CONTRATACIÓN">
-									<p>CONTRATACIÓN</p>
-								</div>
-
-								<div class="top-icon2">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-1.png" alt="CONSUMIDOR">
-									<p>CONSUMIDOR</p>
-									<h3>FINANCIERO</h3>
-								</div>
-
-								<div class="top-icon3">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/objetointeligentevectorial-3.png" alt="SERVICIOS AL">
-									<p>SERVICIOS AL</p>
-									<h3>CIUDADANO</h3>
-								</div>
+								<?php for ($i = 1; $i <= $ServicesNumber; $i++) { ?>
+									<div class="top-icon1">
+										<img src="<?php echo (get_option('services_icons' . $i)) ? esc_url(get_option('services_icons' . $i)) : get_template_directory_uri() . '/assets/images/objetointeligentevectorial-2.png'; ?>" >
+										<p><?php echo (get_option('top_p_s_text' . $i)) ? esc_attr(get_option('top_p_s_text' . $i)) :  "CONTRATACIÓN" ?> </p>
+										<h3><?php echo (get_option('botton_h_s_text' . $i)) ? esc_attr(get_option('botton_h_s_text' . $i)) : "CONTÁCTO" ?></h3>
+									</div>
+								<?php
+								}
+								?>	
 
 							</div>
 
 							<div class="bottom-contact-icons">
 
-								<div class="bottom-icon1">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-2.png" alt="POSITIVA EN">
-									<p>POSITIVA EN</p>
-									<h3>CONTÁCTO</h3>
-								</div>
 
-								<div class="bottom-icon2">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-1.png" alt="MAPA DE">
-									<p>MAPA DE</p>
-									<h3>NAVEGACIÓN</h3>
-								</div>
+								<?php for ($i = 1; $i <= $ServicesNumberOne; $i++) { ?>
+									<div class="bottom-icon1">
+										<img src="<?php echo (get_option('service_bottom_icon' . $i)) ? esc_url(get_option('service_bottom_icon' . $i)) : get_template_directory_uri() . '/assets/images/objetointeligentevectorial-2.png'; ?>" >
+										<p><?php echo (get_option('bottom_f_p_text' . $i)) ? esc_attr(get_option('bottom_f_p_text' . $i)) :  "CONTRATACIÓN" ?> </p>
+										<h3><?php echo (get_option('bottom_f_h_text' . $i)) ? esc_attr(get_option('bottom_f_h_text' . $i)) : "CONTÁCTO" ?></h3>
+									</div>
+								
+								<?php
+								}
+								?>	
 
-								<div class="bottom-icon3">
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/coloroverlay-3.png" alt="PREGUNTAS">
-									<p>PREGUNTAS</p>
-									<h3>FRECUENTES</h3>
-								</div>
 							</div>
 
 						</div>

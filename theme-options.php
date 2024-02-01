@@ -228,7 +228,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function first_page_link_icon_callback($args) {
     $link_number = $args['link_number'];
-    $iy = $args['link_number'];
     $upload_first_icon = get_option('upload_first_icon' . $link_number, '');
 
     ?>
@@ -281,8 +280,7 @@ function top_p_text_callback($args) {
 function bottom_h_text_callback($args) {
     $link_number = $args['link_number'];
     $bottom_h_text = get_option('bottom_h_text' . $link_number, '');
-    ?>
-        
+    ?>    
         <input type="text" name="bottom_h_text<?php echo $link_number; ?>" value="<?php echo esc_attr($bottom_h_text); ?>" placeholder="H tag Text">
     <?php
 
@@ -300,8 +298,181 @@ function slider_textarea_callback() {
     <?php
 }
 
+function services_blank_callback() {
+    ?>
+      <br>
+    <?php
+}
 
+// --------------------------------Footer Top Services Icon
+function footer_services_callback() {
+    global $ServicesNumber;
+    ?>
+    <form method="post">
+        <input type="number" id="services_number" name="services_number" value="<?php echo esc_attr($ServicesNumber); ?>" min="1">
+        <!-- Buttons for incrementing and decrementing -->
+        <button type="submit" name="increment2">+</button>
+        <button type="submit" name="decrement2">-</button>
+    </form>
+    <?php
+}
 
+$ServicesNumber = get_option('services_number', 1);
 
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if + button is clicked
+    if (isset($_POST['increment2']) && $ServicesNumber <= 2) {
+        $ServicesNumber++;
+    }
+    // Check if - button is clicked
+    elseif (isset($_POST['decrement2']) && $ServicesNumber > 1) {
+        $ServicesNumber--;
+    }
+
+    // Update the stored number in the database
+    update_option('services_number', $ServicesNumber);
+}
+
+function services_images_callback($args) {
+    $ServicesNumber = $args['service_number'];
+    $services_icons = get_option('services_icons' . $ServicesNumber, '');
+
+    ?>
+    <input type="text" id="services_icons<?php echo $ServicesNumber; ?>" name="services_icons<?php echo $ServicesNumber; ?>" value="<?php echo esc_url($services_icons); ?>" />
+    <button class="button" id="services_icons_btn<?php echo $ServicesNumber; ?>">Select Icon</button>
+    
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Open media uploader when the button is clicked
+            $('#services_icons_btn<?php echo $ServicesNumber; ?>').click(function (e) {
+                e.preventDefault();
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: {
+                        text: 'Select'
+                    },
+                    multiple: false  
+                });
+
+                custom_uploader.on('select', function () {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    $('#services_icons<?php echo $ServicesNumber; ?>').val(attachment.url);
+                });
+
+                custom_uploader.open();
+            });
+        });
+    </script>
+
+<?php
+}
+function services_top_p_callback($args) {
+    $service_number = $args['service_number'];
+    $top_p_s_text = get_option('top_p_s_text' . $service_number, '');
+    
+    ?>   
+        <input type="text" name="top_p_s_text<?php echo $service_number; ?>" value="<?php echo esc_attr($top_p_s_text); ?>" placeholder="P tag Text">
+    <?php
+}
+
+function services_bottom_h_callback($args) {
+    $service_number = $args['service_number'];
+    $botton_h_s_text = get_option('botton_h_s_text' . $service_number, '');
+
+    ?>
+        <input type="text" name="botton_h_s_text<?php echo $service_number; ?>" value="<?php echo esc_attr($botton_h_s_text); ?>" placeholder="H tag Text">
+    <?php
+}
+
+// --------------------------------Footer Bottom Services Icon
+function services_b_blank_callback() {
+    ?>
+        <br>
+    <?php
+}
+
+function footer_b_services_callback() {
+    global $ServicesNumberOne;
+    ?>
+    <form method="post">
+        <input type="number" id="service_b_number" name="service_b_number" value="<?php echo esc_attr($ServicesNumberOne); ?>" min="1">
+        <!-- Buttons for incrementing and decrementing -->
+        <button type="submit" name="increment3">+</button>
+        <button type="submit" name="decrement3">-</button>
+    </form>
+    <?php
+}
+
+$ServicesNumberOne = get_option('service_b_number', 1);
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Check if + button is clicked
+    if (isset($_POST['increment3']) && $ServicesNumberOne <= 2) {
+        $ServicesNumberOne++;
+    }
+    // Check if - button is clicked
+    elseif (isset($_POST['decrement3']) && $ServicesNumberOne > 1) {
+        $ServicesNumberOne--;
+    }
+
+    // Update the stored number in the database
+    update_option('service_b_number', $ServicesNumberOne);
+}
+
+function bottom_service_icon_callback($args) {
+    $ServicesNumberOne = $args['service_b_number'];
+    $services_btm_icons = get_option('service_bottom_icon' . $ServicesNumberOne, '');
+
+    ?>
+    <input type="text" id="service_bottom_icon<?php echo $ServicesNumberOne; ?>" name="service_bottom_icon<?php echo $ServicesNumberOne; ?>" value="<?php echo esc_url($services_btm_icons); ?>" />
+    <button class="button" id="services_btm_btn<?php echo $ServicesNumberOne; ?>">Select Icon</button>
+    
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Open media uploader when the button is clicked
+            $('#services_btm_btn<?php echo $ServicesNumberOne; ?>').click(function (e) {
+                e.preventDefault();
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: {
+                        text: 'Select'
+                    },
+                    multiple: false  
+                });
+
+                custom_uploader.on('select', function () {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    $('#service_bottom_icon<?php echo $ServicesNumberOne; ?>').val(attachment.url);
+                });
+
+                custom_uploader.open();
+            });
+        });
+    </script>
+
+<?php
+}
+
+function bottom_f_p_text_callback($args) {
+    $service_b_number = $args['service_b_number'];
+    $bottom_f_p_text = get_option('bottom_f_p_text' . $service_b_number, '');
+    
+    ?>   
+        <input type="text" name="bottom_f_p_text<?php echo $service_b_number; ?>" value="<?php echo esc_attr($bottom_f_p_text); ?>" placeholder="P tag Text">
+    <?php
+}
+
+function bottom_f_h_text_callback($args) {
+    $service_b_number = $args['service_b_number'];
+    $bottom_f_h_text = get_option('bottom_f_h_text' . $service_b_number, '');
+
+    ?>
+        <input type="text" name="bottom_f_h_text<?php echo $service_b_number; ?>" value="<?php echo esc_attr($bottom_f_h_text); ?>" placeholder="H tag Text">
+    <?php
+}
 
 ?>

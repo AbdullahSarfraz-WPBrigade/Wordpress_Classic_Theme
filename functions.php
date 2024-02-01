@@ -649,6 +649,7 @@ function theme_options_setting() {
 
 		register_setting('section_one', 'upload_first_icon' . $iy, 'esc_url_raw');
 
+	
 		add_settings_field(
 			"top_p_text" . $iy,
 			"",
@@ -686,8 +687,111 @@ function theme_options_setting() {
 		"theme-options",
 		"section_one"
 	);
-	
 
+	add_settings_field(
+		"footer_services_start",
+		"Footer Services Settings",
+		"services_blank_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"footer_services_increment",
+		"Services on top line",
+		"footer_services_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	$ServicesNumber = get_option('services_number', 1);
+
+	for ($iy = 1; $iy <= $ServicesNumber; $iy++) {
+		add_settings_field(
+			'services_icons' . $iy,
+			'Service img ' . $iy,
+			'services_images_callback',
+			'theme-options',
+			'section_one',
+			array('service_number' => $iy)
+		);
+
+	register_setting('section_one', 'services_icons' . $iy, 'esc_url_raw');
+
+	add_settings_field(
+		'top_p_s_text' . $iy,
+		'',
+		'services_top_p_callback',
+		'theme-options',
+		'section_one',
+		array('service_number' => $iy)
+	);
+	register_setting('section_one', 'top_p_s_text' . $iy);
+
+	add_settings_field(
+		'botton_h_s_text' . $iy,
+		'',
+		'services_bottom_h_callback',
+		'theme-options',
+		'section_one',
+		array('service_number' => $iy)
+	);
+	register_setting('section_one', 'botton_h_s_text' . $iy);
+
+	}
+
+	add_settings_field(
+		"footer_b_services_start",
+		"Footer bottom Services Settings",
+		"services_b_blank_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"footer_b_services_increment",
+		"Services on bottom line",
+		"footer_b_services_callback",
+		"theme-options",
+		"section_one"
+	);
+
+
+	$ServicesNumberOne = get_option('service_b_number', 1);
+	for ($iy = 1; $iy <= $ServicesNumberOne; $iy++) {
+		add_settings_field(
+			'service_bottom_icon' . $iy,
+			'Service Icon ' . $iy,
+			'bottom_service_icon_callback',
+			'theme-options',
+			'section_one',
+			array('service_b_number' => $iy)
+		);
+
+		register_setting('section_one', 'service_bottom_icon' . $iy, 'esc_url_raw');
+
+	
+		add_settings_field(
+			"bottom_f_p_text" . $iy,
+			"",
+			"bottom_f_p_text_callback",
+			"theme-options",
+			"section_one",
+			array('service_b_number' => $iy)
+		);
+		register_setting("section_one","bottom_f_p_text" . $iy);
+
+
+		add_settings_field(
+			"bottom_f_h_text" . $iy,
+			"",
+			"bottom_f_h_text_callback",
+			"theme-options",
+			"section_one",
+			array('service_b_number' => $iy)
+		);
+		register_setting("section_one","bottom_f_h_text" . $iy);
+	}
 	//step # 3 rgistering now
 	
 	register_setting(

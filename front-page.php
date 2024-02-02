@@ -639,11 +639,11 @@ suspensión en el pago de su mesada pensional.
 
 							<div class="numbers-action">
 
-								<p>Líneas de atención</p>
-								<p>Comunicate a nivel nacional</p>
-								<a href="tel:+1-8000-111-170">01-8000-111-170</a>
-								<p>En Bogotá</p>
-								<a href="tel:330-7000">330-7000</a>
+								<p><?php echo do_shortcode('[wpb-text text="Líneas de atención"]'); ?></p>
+								<p><?php echo do_shortcode('[wpb-text text="Comunicate a nivel nacional"]'); ?></p>
+								<a href="tel:+1-8000-111-170"><?php echo do_shortcode('[wpb-phone tel="01-20000-111-170"]'); ?></a>
+								<p><?php echo do_shortcode('[wpb-text text="En Bogotá"]'); ?></p>
+								<a href="tel:330-7000"><?php echo do_shortcode('[wpb-phone tel="330-7000"]'); ?></a>
 							</div>
 
 						</div>
@@ -655,8 +655,8 @@ suspensión en el pago de su mesada pensional.
 							</div>
 
 							<div class="address-site">
-								<h3>Puntos de Atención</h3>
-								<p>Ubica el punto de atención más cercano</p>
+								<h3><?php echo do_shortcode('[wpb-text text="Puntos de Atención"]'); ?></h3>
+								<p><?php echo do_shortcode('[wpb-text text="Ubica el punto de atención más cercano"]'); ?></p>
 							</div>
 
 						</div>
@@ -668,7 +668,7 @@ suspensión en el pago de su mesada pensional.
 							</div>
 
 							<div class="group-name">
-								<h3>Directorio de Funcionarios</h3>
+								<h3><?php echo do_shortcode('[wpb-text text="Directorio de Funcionarios"]'); ?></h3>
 							</div>
 
 						</div>
@@ -681,18 +681,18 @@ suspensión en el pago de su mesada pensional.
 
 							<div class="one-man-text">
 
-								<h3>Línea Ética</h3>
-								<span>Presenta aquí tu caso</span>
-								<span>de fraude o corrupción</span><br>
-								<a href="tel:+1-8000-112-870">01-8000-112-870</a>
-								<h4>Correo electronico</h4><br><br>
+								<h3><?php echo do_shortcode('[wpb-text text="Línea Ética"]'); ?></h3>
+								<span><?php echo do_shortcode('[wpb-text text="Presenta aquí tu caso"]'); ?></span>
+								<span><?php echo do_shortcode('[wpb-text text="de fraude o corrupción"]'); ?></span><br>
+								<a href="tel:+1-8000-112-870"><?php echo do_shortcode('[wpb-phone tel="01-8000-112-875"]'); ?></a>
+								<h4><?php echo do_shortcode('[wpb-text text="Correo electronico"]'); ?></h4><br><br>
 
 								<div class="first-mail-id">
 									<div class="first-mail-icon">
 										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.png" alt="Mail-Icon">
 									</div>
 									<div class="first-mail-link">
-										<a href="mailto:servicioalcliente@positiva.gov.co">servicioalcliente@positiva.gov.co</a>
+										<a href="mailto:servicioalcliente@positiva.gov.co"><?php echo do_shortcode('[wpb-text text="servicioalcliente@positiva.gov.co"]'); ?></a>
 									</div>
 								</div>
 
@@ -701,7 +701,7 @@ suspensión en el pago de su mesada pensional.
 										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/mail.png" alt="Mail-Icon">
 									</div>
 									<div class="second-mail-link">
-										<a href="mailto:notijicacionesjudiciales@popositiva.gov.co">notijicacionesjudiciales@popositiva.gov.co</a>
+										<a href="mailto:notijicacionesjudiciales@popositiva.gov.co"><?php echo do_shortcode('[wpb-text text="notijicacionesjudiciales@popositiva.gov.co"]'); ?></a>
 									</div>
 								</div>
 

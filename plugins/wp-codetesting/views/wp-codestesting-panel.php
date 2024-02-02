@@ -1,0 +1,1 @@
+<h3>And this is the redirected one short code ok </h3>

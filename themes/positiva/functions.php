@@ -792,6 +792,38 @@ function theme_options_setting() {
 		);
 		register_setting("section_one","bottom_f_h_text" . $iy);
 	}
+
+	add_settings_field(
+		"footer_side_logo",
+		"Footer Left Side Logo",
+		"footer_left_logo_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"footer_text_firstline",
+		"Footer 1st line",
+		"footer_text_firstline_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"footer_text_secondline",
+		"Footer 2nd line",
+		"footer_text_secondline_callback",
+		"theme-options",
+		"section_one"
+	);
+
+	add_settings_field(
+		"Bottom_end_logo",
+		"Bottom End logo",
+		"Bottom_end_logo_callback",
+		"theme-options",
+		"section_one"
+	);
 	//step # 3 rgistering now
 	
 	register_setting(
@@ -814,10 +846,16 @@ function theme_options_setting() {
 	register_setting('section_one', 'stored_number', 'intval');
 	
 	register_setting('section_one', 'slider_textarea');
+	register_setting('section_one', 'footer_side_logo');
+	register_setting('section_one', 'footer_text_firstline');
+	register_setting('section_one', 'footer_text_secondline');
+	register_setting('section_one', 'Bottom_end_logo');
 }
 
 	
 add_action("admin_init","theme_options_setting");
+
+
 	
 
 function header_slider_option_function() {
@@ -867,6 +905,21 @@ function positiva_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'positiva_widgets_init' );
+
+function footer_widget() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer logos Sidebar', 'positiva' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Will be displayed in the footer logos section', 'positiva' ),
+			'before_widget' => '<div class="widget_footer">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="widget_logo">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'footer_widget' );
 
 /**
  * Enqueue scripts and styles.

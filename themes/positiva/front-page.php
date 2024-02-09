@@ -12,21 +12,18 @@ function display_under_head() {
 	$EMPLEADOS_text = get_option('EMPLEADOS_text','');
 	$CON_text = get_option('CON_text','');
 	$POSITIVA_text = get_option('POSITIVA_text','');
-
 	$storedNumber = get_option('stored_number', 1);
-
 	$LinkedNumber = get_option('linked_number', 1);
-
 	$top_p_text = get_option('top_p_text', '');
 	$bottom_h_text = get_option('bottom_h_text', '');
-
 	$selected_departamento = get_theme_mod( 'departamento_select' );
-
 	$slider_textarea = get_option('slider_textarea');
-
 	$ServicesNumber = get_option('services_number', 1);
-
 	$ServicesNumberOne = get_option('service_b_number', 1);
+	$footer_side_logo = get_option('footer_side_logo', '');
+	$footer_text_firstline = get_option('footer_text_firstline','');
+	$footer_text_secondline = get_option('footer_text_secondline','');
+
 ?>
 		<div class="Main-hero">
 
@@ -42,10 +39,10 @@ function display_under_head() {
 
 						<div class="Container">
 
-						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo"$GARANTIZA_text"; ?></span> <span class="H-TTwo"><?php echo"$EL_text"; ?></span> <span class="H-TOne"><?php echo"$BIENESTAR_text"; ?></span>
-								<span class="H-TThree"><?php echo"$DE_text"; ?></span>
-								<span class="H-TFour"><?php echo"$EMPLEADOS_text"; ?></span>
-								<span class="H-TCON"><?php echo"$CON_text"; ?></span> <span class="H-TPos"><?php echo"$POSITIVA_text"; ?></span>
+						<pre class="Hero-AllText">                      <span class="H-TOne"><?php echo("$GARANTIZA_text") ? esc_attr("$GARANTIZA_text") : "GARANTIZA"; ?></span> <span class="H-TTwo"><?php echo("$EL_text") ? esc_attr("$EL_text") : "EL"; ?></span> <span class="H-TOne"><?php echo("$GARANTIZA_text") ? esc_attr("$BIENESTAR_text") : "BIENESTAR"; ?></span>
+								<span class="H-TThree"><?php echo("$DE_text") ? esc_attr("$DE_text") : "DE TUS"; ?></span>
+								<span class="H-TFour"><?php echo("$EMPLEADOS_text") ? esc_attr("$EMPLEADOS_text") : "EMPLEADOS"; ?></span>
+								<span class="H-TCON"><?php echo("$CON_text") ? esc_attr("$CON_text") : "CON"; ?></span> <span class="H-TPos"><?php echo("$POSITIVA_text") ? esc_attr("$POSITIVA_text") : "POSITIVA"; ?></span>
 
 						</pre>
 					
@@ -515,7 +512,7 @@ suspensión en el pago de su mesada pensional.
 		
 								<div class="item">
 		
-									<p><?php echo"$slider_textarea"; ?> </p>
+									<p><?php echo("$slider_textarea") ? esc_attr("$slider_textarea") : "BANNER"; ?></p>
 		
 								</div>
 		
@@ -527,7 +524,7 @@ suspensión en el pago de su mesada pensional.
 		
 								<div class="item">
 		
-									<p> <?php echo"$slider_textarea"; ?> </p>
+									<p>  <?php echo("$slider_textarea") ? esc_attr("$slider_textarea") : "SLIDER"; ?></p>
 		
 								</div>
 		
@@ -590,7 +587,7 @@ suspensión en el pago de su mesada pensional.
 					<div class="contact-icons">
 
 						<div class="contact-side-logo">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/vectorial-bottom.png" alt="Bottom-Side-logo">
+							<img src="<?php echo (get_option('footer_side_logo')) ? esc_url(get_option('footer_side_logo')) : get_template_directory_uri() . '/assets/images/vectorial-bottom.png' ; ?>">
 						</div>
 
 						<div class="contact-main-icons">
@@ -715,7 +712,97 @@ suspensión en el pago de su mesada pensional.
 
 			</div>      
 
-		</div>		
+		</div>
+		
+		<div class="bottom-logos">
+
+			<div class="Container">
+
+				<?php if(is_active_sidebar('sidebar-2')) { ?>
+					<div class="head_wrap">
+						<?php dynamic_sidebar('sidebar-2'); ?>
+					</div>
+				<?php } else{ ?>
+
+				<div class="All-bottom-logos">
+
+					<div class="left-bottom-logos owl-carousel owl-theme owl-carousel7">
+
+
+						<div class="item">
+							<div class="left-b-logo1">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/image2.png" alt="Bottom-first-logo">
+							</div>
+						</div>
+						
+
+						<div class="item">
+							<div class="left-b-logo2">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/capa15.png" alt="Bottom-second-logo">
+							</div>
+						</div>                
+						
+
+						<div class="item">
+							<div class="left-b-logo3">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/image3.png" alt="Bottom-third-logo">
+							</div>
+						</div>
+						
+
+						<div class="item">
+							<div class="right-bottom-logos">
+
+								<div class="right-b-logo1">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/p.m.copia1.png" alt="Botom-logo-fourth">
+								</div>
+
+								<div class="right-b-logo2">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/p.m.copia2.png" alt="Bottom-logo-fivth">
+								</div>
+
+							</div>
+						</div>
+						
+
+					</div>
+
+					
+
+				</div>
+
+				<?php } ?>
+
+			</div>
+
+		</div>
+
+		<footer>
+
+			<div class="footer">
+
+				<div class="Container">
+
+					<div class="footer-content">
+
+						<div class="footer-text">
+							<p><?php echo("$footer_text_firstline") ? esc_attr("$footer_text_firstline") : "Política de privacidad	Política editorial		Política de seguridad		Intranet	Admin"; ?></p><br>
+							<p><?php echo("$footer_text_secondline") ? esc_attr("$footer_text_secondline") : "Última actualización 	12/06/2015 11:45:00		Numero de visitantes: 1982448		Este portal funciona mejor en IE7+, Chrome 11+, Firefox 10+"; ?></p>
+						</div>
+
+						<div class="footer-logo">
+							<img src="<?php echo (get_option("Bottom_end_logo")) ? esc_url(get_option("Bottom_end_logo")) :  get_template_directory_uri() . '/assets/images/objetointeligentevectorial.png' ; ?>" >
+						</div>
+
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+		</footer>		
 
 <?php    
 

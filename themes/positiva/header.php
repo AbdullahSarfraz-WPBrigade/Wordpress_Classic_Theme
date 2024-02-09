@@ -75,15 +75,15 @@ function display_gray_topline() {
 				<ul>
 
 					<a href="#" class="orangetext">
-						<li><?php echo"$ayuda_text"; ?></li>
+						<li><?php echo("$ayuda_text") ? esc_attr("$ayuda_text") : "Ayuda"; ?></li>
 					</a>
 					
 					<a href="#">
-						<li><?php echo"$map_text"; ?> </li>
+						<li><?php echo("$map_text") ? esc_attr("$map_text") : "Mapa del sitio"; ?> </li>
 					</a>
 					
 					<a href="#">
-						<li><?php echo"$aaa_text"; ?> </li>
+						<li><?php echo("$aaa_text") ? esc_attr("$aaa_text") : "AAA"; ?> </li>
 					</a>
 					
 					
@@ -94,7 +94,7 @@ function display_gray_topline() {
 
 			<div class="gray-lineTwo">
 
-				<a href="#"> <?php echo"$miercolo_text"; ?> </a>
+				<a href="#"><?php echo("$miercolo_text") ? esc_attr("$miercolo_text") : "miércoles ,10 de julio de 2015"; ?> </a>
 
 			</div>
 
@@ -116,7 +116,7 @@ function display_gray_topline() {
 							echo '<img src="' .esc_url($left_top_icon_var) . '" alt="Icono">';
 						}
 					?>
-					<a href="#"><?php echo"$proceso_text"; ?></a>
+					<a href="#"><?php echo("$proceso_text") ? esc_attr("$proceso_text") : "Proceso ante accidente laboral"; ?></a>
 
 					</div>
 					
@@ -135,7 +135,7 @@ function display_gray_topline() {
 				<div class="pre-profile">
 
 					<div>
-						<a href="#"><?php echo"$iniciar_text"; ?></a>
+						<a href="#"><?php echo("$iniciar_text") ? esc_attr("$iniciar_text") : "Iniciar sesión"; ?></a>
 						<?php
 							$Right_top_icon_var = get_template_directory_uri() . "/assets/images/ellipse2copy.png";
 							$Right_top_icon_custom = get_theme_mod("Right_Side_Icon"); 
@@ -273,14 +273,14 @@ function display_gray_topline() {
     
                         <div class="Top-links">
 
-                            <div class="Left-border"><a href="#"><?php echo"$inicio_text"; ?></a></div>
+                            <div class="Left-border"><a href="#"><?php echo"$inicio_text"; ?><?php echo("$inicio_text") ? esc_attr("$inicio_text") : "INICIO"; ?></a></div>
 
 
                             <div class="FirstDiv-DD-Mobile">
 
                                 <div class="mobile-nav-click">
 
-                                    <div class="Left-border LA-Company" ><a href=""><?php echo"$companyia_text"; ?></a>
+                                    <div class="Left-border LA-Company" ><a href=""><?php echo("$companyia_text") ? esc_attr("$companyia_text") : "LA COMPAÑÍA"; ?></a>
                                 
                                         <div class="drop-down">
                         
@@ -344,7 +344,7 @@ function display_gray_topline() {
 
                                 <div class="mobile-nav-click">
 
-                                    <div class="Left-border"><a href="#"><?php echo"$ARL_text"; ?></a></div>
+                                    <div class="Left-border"><a href="#"><?php echo("$ARL_text") ? esc_attr("$ARL_text") : "ARL"; ?></a></div>
     
                                     <div class="path2">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/path.png" alt="Clickable-Button" onclick="RotationOnClickOne(this)">
@@ -372,7 +372,7 @@ function display_gray_topline() {
 
                                 <div class="mobile-nav-click">
 
-                                    <div class="Left-border"><a href="#"><?php echo"$seguro_text"; ?></a></div>
+                                    <div class="Left-border"><a href="#"><?php echo("$seguro_text") ? esc_attr("$seguro_text") : "SEGUROS DE VIDA"; ?></a></div>
     
                                     <div class="path3">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/path.png" alt="Clickable-Button" onclick="RotationOnClickTwo(this)">
@@ -401,7 +401,7 @@ function display_gray_topline() {
 
                                 <div class="mobile-nav-click">
 
-                                    <div class="Left-border"><a href="#"><?php echo"$Atencion_text"; ?></a></div>
+                                    <div class="Left-border"><a href="#"><?php echo("$Atencion_text") ? esc_attr("$Atencion_text") : "ATENCIÓN AL CIUDADANO"; ?></a></div>
     
                                     <div class="path4">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/path.png" alt="Clickable-Button" onclick="RotationOnClickThree(this)">

@@ -475,4 +475,81 @@ function bottom_f_h_text_callback($args) {
     <?php
 }
 
+function footer_left_logo_callback() {
+    $footer_side_logo = get_option('footer_side_logo', '');
+
+    ?>
+    <input type="text" id="footer_side_logo" name="footer_side_logo" value="<?php echo esc_url($footer_side_logo); ?>" />
+    <button class="button" id="footer_side_logo_id">Select logo</button>
+    
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Open media uploader when the button is clicked
+            $('#footer_side_logo_id').click(function (e) {
+                e.preventDefault();
+                var custom_uploader = wp.media({
+                    title: 'Select Image',
+                    button: {
+                        text: 'Select'
+                    },
+                    multiple: false  
+                });
+
+                custom_uploader.on('select', function () {
+                    var attachment = custom_uploader.state().get('selection').first().toJSON();
+                    $('#footer_side_logo').val(attachment.url);
+                });
+
+                custom_uploader.open();
+            });
+        });
+    </script>
+
+<?php
+}
+
+function footer_text_firstline_callback() {
+	?>	
+		<input type="text" name="footer_text_firstline" value="<?php echo get_option('footer_text_firstline'); ?>" placeholder="1st line footer">	
+	<?php
+}
+
+function footer_text_secondline_callback() {
+	?>	
+		<input type="text" name="footer_text_secondline" value="<?php echo get_option('footer_text_secondline'); ?>" placeholder="2n line footer">	
+	<?php
+}
+
+function Bottom_end_logo_callback() {
+    $Bottom_end_logo = get_option("Bottom_end_logo","");
+    ?>
+        <input type="text" name="Bottom_end_logo" id="Bottom_end_logo" value="<?php echo esc_url($Bottom_end_logo) ?>"/>
+        <button class="button" id="bottom_end_logo_id">Upload footer logo</button>
+
+        <script>
+            jQuery(document).ready(function($) {
+
+                $('#bottom_end_logo_id').click(function(e) {
+                    e.preventDefault();
+                    var custom_uploader = wp.media({
+                        title: 'Select Image',
+                        button: {
+                            text: 'Select',
+                        },
+                        multiple: false
+                    });
+                    custom_uploader.on('select', function() {
+                        var attachment = custom_uploader.state().get('selection').first().toJSON();
+                        $('#Bottom_end_logo').val(attachment.url);
+                    })
+                    custom_uploader.open();
+                })
+            })
+        </script>
+    <?php
+}
+
+
+
 ?>

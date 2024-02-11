@@ -91,15 +91,16 @@ function display_under_head() {
 
 				<div class="MA-Flex">
 					<div class="MA-Cards owl-carousel owl-theme owl-carousel6">
-						<?php
+					<?php
 						$args = array(
 							'post_type' => 'post',
 							'posts_per_page' => 3,
 							'orderby' => 'date',
 							'order' => 'DESC',
 						);
-
+						
 						$latest_posts = new WP_Query($args);
+						
 
 						if ($latest_posts->have_posts()) :
 							while ($latest_posts->have_posts()) : $latest_posts->the_post();
@@ -253,20 +254,20 @@ function display_under_head() {
 					<div class="slider-hub-area">
 
 						<div class="owl-carousel owl-theme owl-carousel2">
-						<?php
-						$args_array = array(
-							'posts_per_page' => -1,
-							'post_type'      => 'sliders',
-							'post_status'    => 'publish',
-							'orderby'        => 'post_type',
-								'order'          => 'DESC'
-						);
-						$get_sliders_posts = new WP_Query( $args_array );
+							<?php
+							$args = array(
+								'post_type' => 'sliders',
+								'posts_per_page' => 3,
+								'orderby' => 'date',
+								'order' => 'DESC',
+							);
+							
+							$latest_posts = new WP_Query($args);
+							// var_dump($latest_posts->post_type);
 
-						if ( $get_sliders_posts ) {
-							foreach ( $get_sliders_posts as $post ) :
-								setup_postdata( $post );
-								?>
+							if ($latest_posts->have_posts()) :
+								while ($latest_posts->have_posts()) : $latest_posts->the_post();
+							?>
 									
 									<div class="item">
 									<?php $featured_img_url = get_the_post_thumbnail_url(); ?>
@@ -276,10 +277,12 @@ function display_under_head() {
 										</div>
 										
 									</div>								
-							<?php
-							endforeach; 
-							wp_reset_postdata();
-						}
+						<?php
+							endwhile;
+							wp_reset_postdata(); // Reset the query
+						else :
+							echo 'No posts found.';
+						endif;
 						?>
 								
 							

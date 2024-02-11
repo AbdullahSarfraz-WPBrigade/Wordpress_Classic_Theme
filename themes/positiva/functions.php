@@ -450,6 +450,24 @@ function slider_custom_post_type_header() {
  }
 add_action( 'init', 'slider_custom_post_type_header' );
 
+function ajax_custom_post_type() {
+    register_post_type( 'events', array(  // 'sldier' here is for the slug and array is definig the properties
+            'labels' => array(
+                'name' => __( 'events' ),
+                'singular_name' => __( 'events' ),
+				'all_items' => __('All Events'),
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'events'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+            'taxonomies' => array('post_tag','category' ),
+        )
+    );
+ }
+add_action( 'init', 'ajax_custom_post_type' );
+
 
 // Submittion of Gravity Form for Email-Newsletter in wp_options
 
